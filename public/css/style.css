@@ -1,0 +1,78 @@
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  color: #B0BEC5;
+  display: table;
+  font-weight: 100;
+  font-family: 'Lato', sans-serif;
+}
+.welcome {
+  text-align: center;
+  position: relative;
+  top: -250px;
+  margin-top: 50%;
+}
+.title {
+  font-size: 96px;
+  margin-bottom: 40px;
+}
+.quote {
+  font-size: 24px;
+  top: 125px;
+  position: relative;
+}
+main {
+  width: 100%;
+  height: 100%;
+}
+main #content {
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+}
+main #content .letter {
+  display: block;
+  float: left;
+  -webkit-transition: all 600ms;
+  -moz-transition: all 600ms;
+  -ms-transition: all 600ms;
+  -o-transition: all 600ms;
+}
+main #content .letter.to-bottom {
+  margin-top: 300%;
+}
+main #content .title {
+  position: absolute;
+  height: 100px;
+}
+main #content .laravel-title {
+  width: 360px;
+  left: 50%;
+  margin-left: -180px;
+}
+main #content .avenger-web {
+  width: 540px;
+  display: none;
+  left: 50%;
+  margin-left: -270px;
+}
+main #content .avenger-web .last-word {
+  display: inline-block;
+  position: relative;
+  -webkit-transition: all 600ms;
+  -moz-transition: all 600ms;
+  -ms-transition: all 600ms;
+  -o-transition: all 600ms;
+}
+main #content .avenger-web.active .last-word {
+  right: 9px;
+  font-weight: bold;
+  font-size: 32px;
+  top: -11px;
+  -webkit-transform: rotate(90deg);
+}

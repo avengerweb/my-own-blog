@@ -11,9 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', "HomeController@welcome");
 
 Route::group(["prefix" => "user"], function() {
 
