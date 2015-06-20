@@ -150,28 +150,30 @@
   -o-transform-origin: @x @y;
 }
 
+@import url(http://fonts.googleapis.com/css?family=Roboto:400,100,300,500,400italic,700&subset=latin,cyrillic);
+
 html, body {
   height: 100%;
   position: relative;
 }
 
-@import url(http://fonts.googleapis.com/css?family=Roboto:400,100,300,500,400italic,700&subset=latin,cyrillic);
-
 body {
-  margin: 0;
-  padding: 0;
   width: 100%;
   color: #B0BEC5;
-  display: table;
-  font-weight: 100;
+  font-weight: 300;
   font-family: 'Roboto', sans-serif;
+
+  //TODO::Make full responsive or adaptive maybe ;)
+  min-width: 640px;
 }
 
 .welcome {
   text-align: center;
-  position: relative;
-  top: -250px;
-  margin-top: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-left: -270px;
+  margin-top: -70px;
   font-family: 'Lato', sans-serif;
 }
 
@@ -184,6 +186,8 @@ body {
   font-size: 24px;
   top: 125px;
   position: relative;
+  width: 580px;
+  margin-left: -20px;
 }
 
 header {
@@ -387,6 +391,10 @@ main {
   width: 100%;
   height: 100%;
 
+  .container{
+    //position: relative;
+  }
+
   #content {
     height: 100%;
 
@@ -408,16 +416,13 @@ main {
 
     .laravel-title {
       width: 360px;
-      left: 50%;
-      margin-left: -180px;
+      margin-left: 100px;
     }
 
     .avenger-web {
 
       width: 540px;
       display: none;
-      left: 50%;
-      margin-left: -270px;
 
       .last-word {
         display: inline-block;
@@ -432,7 +437,7 @@ main {
           font-weight: bold;
           font-size: 32px;
           top: -11px;
-          -webkit-transform: rotate(90deg);
+          .rotate(90deg);
         }
       }
     }

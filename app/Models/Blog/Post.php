@@ -48,4 +48,16 @@ class Post extends Model
 
         $this->slug = Str::slug($this->title);
     }
+
+    /**
+     * Get posts which we can show in our blog
+     *
+     * @param \Illuminate\Database\Query\Builder $query
+     * @return \Illuminate\Database\Query\Builder|\App\Models\Blog\Post
+     */
+    public function scopeToShow($query) {
+        return $query->whereState(1)->orWhere(function($query) {
+            $query->whereState(2)->whereActiveFrom("<", (new \DateTime)->format("Y-m-d H:i:s"));
+        });
+    }
 }

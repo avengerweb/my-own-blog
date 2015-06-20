@@ -2,21 +2,20 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-
+use App\Models\Blog\Post;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
 class HomeController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Display a listing of the posts.
      *
      * @return Response
      */
     public function index()
     {
-        //
+        return Post::toShow()->simplePaginate(10);
     }
 
     /**

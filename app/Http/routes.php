@@ -25,3 +25,9 @@ Route::group(["prefix" => "user"], function() {
     Route::post('register', 'Auth\AuthController@postRegister');
 
 });
+
+Route::group(["prefix" => "api/0.1/"], function() {
+    Route::group(["prefix" => "posts"], function() {
+        Route::get("list", "HomeController@index");
+    });
+});

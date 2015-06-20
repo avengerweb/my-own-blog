@@ -5,19 +5,19 @@ body {
   position: relative;
 }
 body {
-  margin: 0;
-  padding: 0;
   width: 100%;
   color: #B0BEC5;
-  display: table;
-  font-weight: 100;
+  font-weight: 300;
   font-family: 'Roboto', sans-serif;
+  min-width: 640px;
 }
 .welcome {
   text-align: center;
-  position: relative;
-  top: -250px;
-  margin-top: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-left: -270px;
+  margin-top: -70px;
   font-family: 'Lato', sans-serif;
 }
 .title {
@@ -28,6 +28,8 @@ body {
   font-size: 24px;
   top: 125px;
   position: relative;
+  width: 580px;
+  margin-left: -20px;
 }
 header {
   position: absolute;
@@ -244,14 +246,11 @@ main #content .title {
 }
 main #content .laravel-title {
   width: 360px;
-  left: 50%;
-  margin-left: -180px;
+  margin-left: 100px;
 }
 main #content .avenger-web {
   width: 540px;
   display: none;
-  left: 50%;
-  margin-left: -270px;
 }
 main #content .avenger-web .last-word {
   display: inline-block;
@@ -267,4 +266,7 @@ main #content .avenger-web.active .last-word {
   font-size: 32px;
   top: -11px;
   -webkit-transform: rotate(90deg);
+  -moz-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  -o-transform: rotate(90deg);
 }
