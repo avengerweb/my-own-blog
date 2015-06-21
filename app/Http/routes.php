@@ -24,6 +24,8 @@ Route::group(["prefix" => "user"], function() {
     Route::get('register', 'Auth\AuthController@getRegister');
     Route::post('register', 'Auth\AuthController@postRegister');
 
+    Route::controllers(['password' => 'Auth\PasswordController']);
+
 });
 
 Route::group(["prefix" => "api/0.1/"], function() {

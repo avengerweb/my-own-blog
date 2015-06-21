@@ -54,7 +54,7 @@ return [
     |
     */
 
-    'from' => ['address' => null, 'name' => null],
+    'from' => ['address' => "help@avenger-web.ru", 'name' => "AvengerWeb"],
 
     /*
     |--------------------------------------------------------------------------

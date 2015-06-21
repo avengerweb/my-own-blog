@@ -9,6 +9,7 @@ body {
   color: #B0BEC5;
   font-weight: 300;
   font-family: 'Roboto', sans-serif;
+  min-height: 400px;
   min-width: 640px;
 }
 .welcome {
@@ -35,6 +36,7 @@ header {
   position: absolute;
   height: 100%;
   width: 300px;
+  overflow: hidden;
 }
 header .menu-wrap {
   position: absolute;
@@ -222,7 +224,10 @@ header.show-menu .content::before {
 }
 main {
   width: 100%;
-  height: 100%;
+  min-height: 100%;
+}
+main .container {
+  min-height: 400px;
 }
 main #content {
   height: 100%;
