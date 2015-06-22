@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Models\Permission;
 use Illuminate\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Auth\Passwords\CanResetPassword;
@@ -18,6 +19,9 @@ use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
  * @property string $remember_token
  * @property \Carbon\Carbon $created_at
  * @property \Carbon\Carbon $updated_at
+ *
+ * @property \App\Models\UserAccess $access
+ *
  * @method static \Illuminate\Database\Query\Builder|\App\User whereId($value)
  * @method static \Illuminate\Database\Query\Builder|\App\User whereName($value)
  * @method static \Illuminate\Database\Query\Builder|\App\User whereEmail($value)
@@ -50,4 +54,24 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
      * @var array
      */
     protected $hidden = ['password', 'remember_token'];
+
+    /**
+     * Get current user access level
+     *
+     * @return mixed
+     */
+    public function access() {
+        return $this->hasOne('App\Models\UserAccess');
+    }
+
+    /**
+     * Get all permissions for given account level
+     *
+     * @property integer $permission
+     * @return bool
+     */
+    public function hasPermission($permission)
+    {
+        return $this->access ? isset(Permission::getPermissionsForLevel($this->access->level)[$permission]) : false;
+    }
 }
