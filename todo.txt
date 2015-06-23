@@ -1,0 +1,8 @@
+1. Add meta tags to main template
+2. Add admin profile edit into control panel
+3. Add blog settings and editing it in control panel (title, keywords, description)
+4. Animating move logo to menu ;)
+5.
+    5.1) CP: Permission editing (add / edit / delete)
+    5.2) CP: User access editing (add / edit / delete)
+6. Add post categories + editing (add / edit /delete)
