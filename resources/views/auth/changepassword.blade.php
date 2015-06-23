@@ -1,5 +1,5 @@
 @extends('site.layouts.default') {{-- Web site Title --}}
-@section('title') {{{ Lang::get('site/user.change_password') }}} ::
+@section('title') {{{ Lang::get('user.change_password') }}} ::
 @parent @stop {{-- Content --}} @section('content')
 <div class="page-header">
 	<h1>{{{ Lang::get('site/user.change_password') }}}</h1>

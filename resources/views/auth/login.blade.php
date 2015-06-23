@@ -1,4 +1,4 @@
-@extends('index')
+@extends("admin.main");
 
 @section('content')
     <div class="row">

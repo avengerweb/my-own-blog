@@ -33,3 +33,7 @@ Route::group(["prefix" => "api/0.1/"], function() {
         Route::get("list", "HomeController@index");
     });
 });
+
+Route::group(["prefix" => "admin", "middleware" => "access:dashboard_view"], function() {
+    Route::get("/", "DashboardController@index");
+});

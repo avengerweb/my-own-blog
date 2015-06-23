@@ -1,4 +1,4 @@
-@extends('index')
+@extends("admin.main");
 
 {{-- Content --}}
 @section('content')
