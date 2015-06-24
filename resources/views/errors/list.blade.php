@@ -10,3 +10,10 @@
         </ul>
     </div>
 @endif
+
+@if($success = Session::get('success'))
+    <div class="alert alert-success alert-dismissible fade in" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
+        <strong>Success!</strong> {{ $success }}
+    </div>
+@endif

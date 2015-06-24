@@ -36,4 +36,8 @@ Route::group(["prefix" => "api/0.1/"], function() {
 
 Route::group(["prefix" => "admin", "middleware" => "access:dashboard_view"], function() {
     Route::get("/", "DashboardController@index");
+
+    // Profile edit
+    Route::get("/profile", "DashboardController@getCurrentProfile");
+    Route::post("/profile", "DashboardController@postCurrentProfile");
 });
