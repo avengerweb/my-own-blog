@@ -5,10 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <meta name="description" content="">
-    <meta name="author" content="">
+    <meta name="description" content="{{ Config::get("website.description") }}">
+    <meta name="keywords" content="{{ Config::get("website.keywords") }}">
+    <meta name="author" content="{{ Config::get("website.author") }}">
 
-    <title>AvengerWeb</title>
+    <title>{{ Config::get("website.title") }}</title>
 
     <link href='//fonts.googleapis.com/css?family=Lato:100' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"/>
@@ -51,6 +52,8 @@
 <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.3/locales.min.js"></script>
 <script src="/js/snap.svg-min.js"></script>
 <script src="/js/AvengerWeb.js"></script>
+
+{!! Config::get("website.counters") !!}}
 
 </body>
 </html>

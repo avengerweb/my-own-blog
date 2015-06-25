@@ -40,4 +40,8 @@ Route::group(["prefix" => "admin", "middleware" => "access:dashboard_view"], fun
     // Profile edit
     Route::get("/profile", "DashboardController@getCurrentProfile");
     Route::post("/profile", "DashboardController@postCurrentProfile");
+
+    // Profile edit
+    Route::get("/settings", "DashboardController@getConfigEdit");
+    Route::post("/settings", "DashboardController@postConfigEdit");
 });

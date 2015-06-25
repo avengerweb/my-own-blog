@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Helpers\ConfigWriter;
+use Config;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -9,6 +11,10 @@ use App\Http\Controllers\Controller;
 use Response;
 use Validator;
 
+/**
+ * Class DashboardController
+ * @package App\Http\Controllers
+ */
 class DashboardController extends Controller
 {
     /**
@@ -44,7 +50,7 @@ class DashboardController extends Controller
         if ($data['email'] == $user->email)
             unset($data['email']);
 
-        $validator = $this->validator($data);
+        $validator = $this->profileValidator($data);
 
         if ($validator->fails()) {
             $this->throwValidationException(
@@ -69,12 +75,41 @@ class DashboardController extends Controller
      * @param  array  $data
      * @return \Illuminate\Contracts\Validation\Validator
      */
-    protected function validator(array $data)
+    protected function profileValidator(array $data)
     {
         return Validator::make($data, [
             'name' => 'required|max:255',
             'email' => 'email|max:255|unique:users',
             'password' => 'confirmed|min:6',
         ]);
+    }
+
+    /**
+     * Get config edit page
+     *
+     * @return \Illuminate\View\View
+     */
+    public function getConfigEdit() {
+        return view("admin.config");
+    }
+
+
+    /**
+     * Check and save configs
+     *
+     * @param ConfigWriter $writer
+     * @param  Request  $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function postConfigEdit(ConfigWriter $writer, Request $request) {
+
+        Config::set("website.title", $request->get("title"));
+        Config::set("website.description", $request->get("description"));
+        Config::set("website.keywords", $request->get("keywords"));
+        Config::set("website.counters", $request->get("counters"));
+        Config::set("website.author", $request->get("author"));
+
+        $writer->save();
+        return redirect("/admin");
     }
 }

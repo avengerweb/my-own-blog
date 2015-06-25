@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Helpers\ConfigWriter;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -27,5 +28,10 @@ class AppServiceProvider extends ServiceProvider
             $this->app->register('Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider');
             $this->app->register('Barryvdh\Debugbar\ServiceProvider');
         }
+
+        $this->app->singleton('ConfigWriter', function($app)
+        {
+            return new ConfigWriter();
+        });
     }
 }
