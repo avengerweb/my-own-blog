@@ -1,7 +1,7 @@
 1. Add meta tags to main template - done
 2. Add admin profile edit into control panel - done
 3. Add blog settings and editing it in control panel (title, keywords, description) - done
-4. Animating move logo to menu ;)
+4. Animating move logo to menu ;) - done
 5.
     5.1) CP: Permission editing (add / edit / delete)
     5.2) CP: User access editing (add / edit / delete)

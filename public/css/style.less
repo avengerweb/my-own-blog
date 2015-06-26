@@ -266,6 +266,7 @@ header {
     font-size: 1.5em;
     color: transparent;
     background: transparent;
+    outline: none !important;
     &::before {
       position: absolute;
       top: 0.5em;
@@ -292,6 +293,7 @@ header {
     z-index: 1001;
     background: transparent;
     color: transparent;
+    outline: none !important;
     &::before,
     &::after {
       content: '';
@@ -317,7 +319,7 @@ header {
   .menu {
     position: relative;
     z-index: 1000;
-    padding: 3em 0 0;
+    padding: 1.3em 0 0;
   }
   .menu,
   .close-button {
@@ -384,6 +386,32 @@ header {
       opacity: 1;
       -webkit-transition: opacity 0.4s;
       transition: opacity 0.4s;
+    }
+  }
+
+  .logo {
+    margin-left: 30px;
+    //top: 5px;
+    position: relative;
+
+    a {
+      text-decoration: none;
+      font-size: 55px;
+      font-family: 'Lato', sans-serif;
+      .last-word {
+        right: 9px;
+        font-weight: bold;
+        font-size: 20px;
+        top: -6px;
+        .rotate(90deg);
+        position: relative;
+        display: inline-block;
+      }
+
+      outline: none !important;
+      background: none !important;
+      border: 0 !important;
+      color: #B0BEC5 !important;
     }
   }
 

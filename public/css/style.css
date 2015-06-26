@@ -111,6 +111,7 @@ header .menu-button {
   font-size: 1.5em;
   color: transparent;
   background: transparent;
+  outline: none !important;
 }
 header .menu-button::before {
   position: absolute;
@@ -136,6 +137,7 @@ header .close-button {
   z-index: 1001;
   background: transparent;
   color: transparent;
+  outline: none !important;
 }
 header .close-button::before,
 header .close-button::after {
@@ -158,7 +160,7 @@ header .close-button::after {
 header .menu {
   position: relative;
   z-index: 1000;
-  padding: 3em 0 0;
+  padding: 1.3em 0 0;
 }
 header .menu,
 header .close-button {
@@ -221,6 +223,31 @@ header.show-menu .content::before {
   opacity: 1;
   -webkit-transition: opacity 0.4s;
   transition: opacity 0.4s;
+}
+header .logo {
+  margin-left: 30px;
+  position: relative;
+}
+header .logo a {
+  text-decoration: none;
+  font-size: 55px;
+  font-family: 'Lato', sans-serif;
+  outline: none !important;
+  background: none !important;
+  border: 0 !important;
+  color: #B0BEC5 !important;
+}
+header .logo a .last-word {
+  right: 9px;
+  font-weight: bold;
+  font-size: 20px;
+  top: -6px;
+  -webkit-transform: rotate(90deg);
+  -moz-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  -o-transform: rotate(90deg);
+  position: relative;
+  display: inline-block;
 }
 main {
   width: 100%;

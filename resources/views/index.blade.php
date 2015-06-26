@@ -21,6 +21,11 @@
 <header>
     <div class="menu-wrap">
         <nav class="menu">
+            <div class="logo">
+                <a href="/">
+                    Avenger<span class="last-word">Web</span>
+                </a>
+            </div>
             <div class="icon-list">
                 <a href="#"><i class="glyphicon glyphicon-home"></i><span>Главная</span></a>
                 <a href="#"><i class="glyphicon glyphicon-user"></i><span>Обо мне</span></a>
@@ -36,7 +41,7 @@
             </svg>
         </div>
     </div>
-    <button class="menu-button" id="open-button">Open Menu</button>
+    <button class="menu-button hidden" id="open-button">Open Menu</button>
 </header>
 <main>
     <section id="content">

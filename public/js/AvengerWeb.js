@@ -6,15 +6,19 @@ var AvengerWeb = {
     container: null,
     initialize: function() {
         this.container = $("#content");
-        this.welcome();
         this.menu.initialize();
+        this.welcome();
     },
     welcome: function() {
         this.container.addClass("welcome-animate");
-
-        var title = this.container.find(".welcome .laravel-title");
-        var myTitle = this.container.find(".welcome .avenger-web");
+        var welcome = this.container.find(".welcome");
+        var title = welcome.find(".laravel-title");
+        var myTitle = welcome.find(".avenger-web");
         var text = title.text().trim().split("");
+
+        var menuLogo = AvengerWeb.menu.container.find(".logo");
+        menuLogo.css("visibility", "hidden").hide();
+
         title.text("");
         for (var letter in text) {
            title.append("<span class='letter'>" + text[letter] + "</span>");
@@ -35,6 +39,22 @@ var AvengerWeb = {
             setTimeout(function() {
                 title.fadeOut(100);
                 myTitle.fadeIn(500, function() {
+                    setTimeout(function() {
+                        welcome.find(".quote").hide(100, function() {
+                            menuLogo.slideDown(600);
+                            $(this).remove();
+                            myTitle.find(".last-word").css({"font-size": 20, top: -6});
+                            myTitle.animate({"font-size": "55px"}, 500);
+                            welcome.css("z-index", "1001").animate({left:147, "margin-top": -179}, 600, function() {
+                                $(this).hide();
+                                menuLogo.css("visibility", "visible");
+                                $(".menu-button").removeClass("hidden");
+                            });
+                        });
+                    }, 1200);
+                    setTimeout(function() {
+                        AvengerWeb.menu.toggleMenu();
+                    }, 500);
                     $(this).addClass("active");
                 });
             }, anim + 100);
