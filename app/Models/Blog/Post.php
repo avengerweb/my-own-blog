@@ -35,11 +35,10 @@ use Illuminate\Support\Str;
  * @method static \Illuminate\Database\Query\Builder|\App\Models\Blog\Post whereCreatedAt($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Models\Blog\Post whereUpdatedAt($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Models\Blog\Post toShow()
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Blog\Category[] $categories 
  */
 class Post extends Model
 {
-    //
-
     /**
      * Generate slug from title for post
      *
@@ -60,5 +59,15 @@ class Post extends Model
         return $query->whereState(1)->orWhere(function($query) {
             $query->whereState(2)->whereActiveFrom("<", (new \DateTime)->format("Y-m-d H:i:s"));
         });
+    }
+
+    /**
+     * Get post categories
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function categories()
+    {
+        return $this->belongsToMany('App\Models\Blog\Category');
     }
 }
