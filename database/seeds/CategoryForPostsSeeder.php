@@ -4,7 +4,7 @@ use App\Models\Blog\Category;
 use App\Models\Blog\Post;
 use Illuminate\Database\Seeder;
 
-class CategoryForPosts extends Seeder
+class CategoryForPostsSeeder extends Seeder
 {
     /**
      * Run the database seeds.

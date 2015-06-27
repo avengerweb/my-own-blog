@@ -15,8 +15,9 @@ class DatabaseSeeder extends Seeder
         Model::unguard();
 
          $this->call('PostSeeder');
-         $this->call('Permissions');
+         $this->call('PermissionsSeeder');
          $this->call('DashboardSeeder');
+         $this->call('CategoryForPostsSeeder');
 
         Model::reguard();
     }
