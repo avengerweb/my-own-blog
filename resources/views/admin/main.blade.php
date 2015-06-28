@@ -54,7 +54,7 @@
         <div class="col-sm-3 col-md-2 sidebar">
             @if (Auth::check())
             <ul class="nav nav-sidebar">
-                <li class="active"><a href="#">Overview <span class="sr-only">(current)</span></a></li>
+                <li><a href="{{ action("Admin\CategoriesController@getIndex") }}">Blog: Categories</a></li>
                 <li><a href="#">Reports</a></li>
                 <li><a href="#">Analytics</a></li>
                 <li><a href="#">Export</a></li>
@@ -95,6 +95,7 @@
 <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.3/locales.min.js"></script>
 <script src="/js/admin.js"></script>
 
+@yield("scripts")
 
 </body>
 </html>
