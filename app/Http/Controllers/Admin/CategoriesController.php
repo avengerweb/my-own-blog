@@ -7,7 +7,12 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use Validator;
 
+/**
+ * Class CategoriesController
+ * @package App\Http\Controllers\Admin
+ */
 class CategoriesController extends Controller
 {
     /**
@@ -21,46 +26,30 @@ class CategoriesController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
      * Store a newly created resource in storage.
      *
+     * @param Request $request
      * @return Response
      */
-    public function store()
+    public function postStore(Request $request)
     {
-        //
+        $category = new Category();
+
+        $validator = Validator::make($request->all(), [
+            'name' => 'required|max:255|unique:categories',
+        ]);
+
+        if (!$validator->fails()) {
+            $category->name = $request->get("name");
+            $category->generateSlug();
+            $category->save();
+        }
+        else
+            $this->throwValidationException($request, $validator);
+
+        return redirect()->back();
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return Response
-     */
-    public function edit($id)
-    {
-        //
-    }
 
     /**
      * Update the specified resource in storage.
@@ -71,7 +60,24 @@ class CategoriesController extends Controller
      */
     public function postUpdate(Request $request, $id)
     {
-        //
+        if ($category = Category::find($id)) {
+
+            if ($category->name == $request->get("name"))
+                return [];
+
+            $validator = Validator::make($request->all(), [
+                'name' => 'required|max:255|unique:categories',
+            ]);
+            if (!$validator->fails()) {
+                $category->name = $request->get("name");
+                $category->generateSlug();
+                $category->save();
+            }
+            else
+                return ["errors" => $validator->getMessageBag()->toArray()];
+        }
+
+        return [];
     }
 
     /**

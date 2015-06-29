@@ -5,6 +5,6 @@
 5.
     5.1) CP: Permission editing (add / edit / delete)
     5.2) CP: User access editing (add / edit / delete)
-6. Add post categories + editing (add / edit /delete)
+6. Add post categories + editing (add / edit /delete) - done
 7. Unset custom config variables
 8. Validation on save config

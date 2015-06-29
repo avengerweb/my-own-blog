@@ -1,15 +1,21 @@
 @extends("admin.main")
 
 @section("content")
-    <h1 class="title">Categories list</h1>
+    <h1 class="title">Permissions list</h1>
 
     @include("errors.list")
-    {!! Form::open(["url" => action("Admin\CategoriesController@postStore"), 'class' => "col-xs-5"]) !!}
-            <h3>Add category</h3>
+    {!! Form::open(["url" => action("Admin\PermissionsController@postStore"), 'class' => "col-xs-5"]) !!}
+            <h3>Add permission</h3>
         <!--- Name Field --->
         <div class="form-group">
-            {!! Form::label('name', 'Name:') !!}
-            {!! Form::text('name', null, ['class' => 'form-control']) !!}
+            {!! Form::label('permission', 'Permission name:') !!}
+            {!! Form::text('permission', null, ['class' => 'form-control']) !!}
+        </div>
+
+        <!--- Permission Field --->
+        <div class="form-group">
+            {!! Form::label('level', 'Permission level:') !!}
+            {!! Form::text('level', 0, ['class' => 'form-control']) !!}
         </div>
 
         <button type="submit" class="btn btn-default">Add</button>
@@ -19,29 +25,33 @@
     <table class="table table-bordered table-hover categories-list">
         <thead>
             <tr>
-                <th>Name</th>
+                <th>Permission</th>
+                <th>Level</th>
                 <th class="text-center">Actions</th>
             </tr>
         </thead>
-        @foreach($categories as $category)
+        @foreach($permissions as $permission)
             <tr>
                 <td class="col-xs-9 name">
-                    {{ $category->name }}
+                    {{ $permission->permission }}
+                </td>
+                <td class="col-xs-9 level">
+                    {{ $permission->level }}
                 </td>
                 <td class="text-center">
-                    <button class="btn btn-default action-edit-category" data-toggle="modal" data-target="#editCategory" data-action="{{ action("Admin\CategoriesController@postUpdate", $category->id) }}">Edit</button>
-                    <button class="btn btn-danger action-remove-category" data-action="{{ action("Admin\CategoriesController@getDestroy", $category->id) }}">Remove</button>
+                    <button class="btn btn-default action-edit-permission" data-toggle="modal" data-target="#editPermission" data-action="{{ action("Admin\PermissionsController@postUpdate", $permission->id) }}">Edit</button>
+                    <button class="btn btn-danger action-remove-permission" data-action="{{ action("Admin\PermissionsController@getDestroy", $permission->id) }}">Remove</button>
                 </td>
             </tr>
         @endforeach
     </table>
     <!-- Modal -->
-    <div class="modal fade" id="editCategory" tabindex="-1" role="dialog" aria-labelledby="editCategoryLabel">
+    <div class="modal fade" id="editPermission" tabindex="-1" role="dialog" aria-labelledby="editPermissionLabel">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title" id="editCategoryLabel">Edit category</h4>
+                    <h4 class="modal-title" id="editPermissionLabel">Edit permission</h4>
                 </div>
                 <div class="modal-body">
                     {!! Form::open() !!}
@@ -53,16 +63,22 @@
                             <li></li>
                         </ul>
                     </div>
-                    <!--- name Field --->
+                    <!--- Name Field --->
                     <div class="form-group">
-                        {!! Form::label('name', 'Name:') !!}
-                        {!! Form::text('name', null, ['class' => 'form-control']) !!}
+                        {!! Form::label('permission', 'Permission name:') !!}
+                        {!! Form::text('permission', null, ['class' => 'form-control']) !!}
+                    </div>
+
+                    <!--- Permission Field --->
+                    <div class="form-group">
+                        {!! Form::label('level', 'Permission level:') !!}
+                        {!! Form::text('level', 0, ['class' => 'form-control']) !!}
                     </div>
                     {!! Form::close() !!}
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary action-save-category">Save changes</button>
+                    <button type="button" class="btn btn-primary action-save-permission">Save changes</button>
                 </div>
             </div>
         </div>
@@ -73,14 +89,15 @@
     <script>
         $(document).ready(function() {
             var list = $(".categories-list");
-            var modalForm = $("#editCategory form");
-            list.on("click", ".action-edit-category", function() {
+            var modalForm = $("#editPermission form");
+            list.on("click", ".action-edit-permission", function() {
                 modalForm.attr("action", $(this).data("action"));
-                modalForm.find("[name=name]").val($(this).closest("tr").find(".name").html().trim());
+                modalForm.find("[name=permission]").val($(this).closest("tr").find(".name").html().trim());
+                modalForm.find("[name=level]").val($(this).closest("tr").find(".level").html().trim());
 
             });
 
-            $(".action-save-category").click(function() {
+            $(".action-save-permission").click(function() {
                 save();
             });
 
@@ -112,7 +129,7 @@
                 });
             }
 
-            list.on("click", ".action-remove-category", function() {
+            list.on("click", ".action-remove-permission", function() {
                 var tr = $(this).closest("tr");
                 $.get($(this).data("action"), function(data) {
 
