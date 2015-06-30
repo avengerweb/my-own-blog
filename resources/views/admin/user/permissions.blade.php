@@ -32,10 +32,10 @@
         </thead>
         @foreach($permissions as $permission)
             <tr>
-                <td class="col-xs-9 name">
+                <td class="col-xs-5 name">
                     {{ $permission->permission }}
                 </td>
-                <td class="col-xs-9 level">
+                <td class="col-xs-5 level">
                     {{ $permission->level }}
                 </td>
                 <td class="text-center">

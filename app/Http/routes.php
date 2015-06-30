@@ -45,7 +45,11 @@ Route::group(["prefix" => "admin", "middleware" => "access:dashboard_view"], fun
     Route::get("/settings", "DashboardController@getConfigEdit");
     Route::post("/settings", "DashboardController@postConfigEdit");
 
-    Route::group(["prefix" => "blog"], function() {
+    Route::group(["prefix" => "blog", "middleware" => "access:posts_manage"], function() {
         Route::controllers(['categories' => 'Admin\CategoriesController']);
+    });
+
+    Route::group(["prefix" => "user"], function() {
+        Route::controllers(['permissions' => 'Admin\PermissionsController']);
     });
 });
