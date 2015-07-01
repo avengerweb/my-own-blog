@@ -50,6 +50,7 @@ Route::group(["prefix" => "admin", "middleware" => "access:dashboard_view"], fun
     });
 
     Route::group(["prefix" => "user"], function() {
+        Route::controllers(['manage' => 'Admin\UsersController']);
         Route::controllers(['permissions' => 'Admin\PermissionsController']);
     });
 });

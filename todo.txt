@@ -3,8 +3,12 @@
 3. Add blog settings and editing it in control panel (title, keywords, description) - done
 4. Animating move logo to menu ;) - done
 5.
-    5.1) CP: Permission editing (add / edit / delete)
-    5.2) CP: User access editing (add / edit / delete)
+    5.1) CP: Permission editing (add / edit / delete) - done
+    5.2) CP: User access editing (add / edit / delete) -done
 6. Add post categories + editing (add / edit /delete) - done
 7. Unset custom config variables
 8. Validation on save config
+9. Posts (create / edit / remove)
+10. Show posts in main page
+11. Posts: binding to categories
+12. Show categories
