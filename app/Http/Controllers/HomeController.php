@@ -26,7 +26,7 @@ class HomeController extends Controller
      */
     public function welcome()
     {
-        return view("pages.welcome");
+        return view("pages.welcome")->withPosts(Post::toShow()->simplePaginate(10));
     }
 
     /**

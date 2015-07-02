@@ -1,15 +1,14 @@
 @import url(http://fonts.googleapis.com/css?family=Roboto:400,100,300,500,400italic,700&subset=latin,cyrillic);
-html,
-body {
+html {
   height: 100%;
-  position: relative;
 }
 body {
+  min-height: 100%;
   width: 100%;
   color: #B0BEC5;
   font-weight: 300;
   font-family: 'Roboto', sans-serif;
-  min-height: 400px;
+  position: relative;
   min-width: 640px;
 }
 .welcome {
@@ -33,10 +32,17 @@ body {
   margin-left: -20px;
 }
 header {
-  position: absolute;
+  position: fixed;
   height: 100%;
   width: 300px;
   overflow: hidden;
+  z-index: 1;
+}
+@media (max-height: 400px) {
+  header {
+    position: absolute;
+    min-height: 400px;
+  }
 }
 header .menu-wrap {
   position: absolute;
@@ -81,6 +87,7 @@ header .content-wrap {
   transition: transform 0.4s;
 }
 header .content {
+  min-height: 400px;
   position: relative;
   background: #b4bad2;
 }

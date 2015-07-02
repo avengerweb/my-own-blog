@@ -8,6 +8,11 @@ var AvengerWeb = {
         this.container = $("#content");
         this.menu.initialize();
         this.welcome();
+
+        $(".blog .date").each(function() {
+            var t = $(this);
+            t.html(moment(t.html()).calendar());
+        });
     },
     welcome: function() {
         this.container.addClass("welcome-animate");

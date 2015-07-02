@@ -12,7 +12,7 @@
     <title>{{ Config::get("website.title") }}</title>
 
     <link href='//fonts.googleapis.com/css?family=Lato:100' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="/css/style.css"/>
 
 
@@ -52,13 +52,13 @@
 </main>
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.3/moment.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.3/locales.min.js"></script>
+{{--<script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.3/locales.min.js"></script>--}}
 <script src="/js/snap.svg-min.js"></script>
 <script src="/js/AvengerWeb.js"></script>
 
-{!! Config::get("website.counters") !!}}
+{!! Config::get("website.counters") !!}
 
 </body>
 </html>
