@@ -33,13 +33,12 @@ class CategoriesController extends Controller
      */
     public function postStore(Request $request)
     {
-        $category = new Category();
-
         $validator = Validator::make($request->all(), [
             'name' => 'required|max:255|unique:categories',
         ]);
 
         if (!$validator->fails()) {
+            $category = new Category();
             $category->name = $request->get("name");
             $category->generateSlug();
             $category->save();

@@ -37,14 +37,13 @@ class PermissionsController extends Controller
      */
     public function postStore(Request $request)
     {
-        $permission = new Permission();
-
         $validator = Validator::make($request->all(), [
             'permission' => 'required|max:255|alpha_dash|unique:permissions',
             'level' => 'required|min:1|max:255|integer',
         ]);
 
         if (!$validator->fails()) {
+            $permission = new Permission();
             $permission->permission = $request->get("permission");
             $permission->level = $request->get("level");
             $permission->save();

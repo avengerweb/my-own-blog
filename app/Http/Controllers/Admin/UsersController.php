@@ -130,7 +130,8 @@ class UsersController extends Controller
     {
         $user = User::find($id);
 
-        $user->access()->delete();
+        if ($user)
+            $user->access()->delete();
 
         return ["success" => $user ? $user->delete() : false];
     }

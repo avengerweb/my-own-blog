@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Models\Blog\Post;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -16,7 +17,9 @@ class PostsController extends Controller
      */
     public function index()
     {
-        //
+        return view("admin.blog.posts.list", [
+            "posts" => Post::toShow()->simplePaginate(10)
+        ]);
     }
 
     /**
@@ -26,28 +29,33 @@ class PostsController extends Controller
      */
     public function create()
     {
-        //
+        return view("admin.blog.posts.add");
     }
 
     /**
      * Store a newly created resource in storage.
      *
+     * @param Request $request
      * @return Response
      */
-    public function store()
+    public function store(Request $request)
     {
-        //
-    }
+        $validator = \Validator::make($request->all(), [
+            'title' => 'required|max:255|unique:posts',
+            'description' => 'required|max:5000',
+            'content' => 'required|max:40000',
+            'active_from' => 'date',
+            'state' => 'required|integer|min:0|max:2',
+            'disable_comments' => 'boolean'
+        ]);
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return Response
-     */
-    public function show($id)
-    {
-        //
+        if (!$validator->fails()) {
+            /*
+             * TODO::Categories check...
+             * */
+        }
+        else
+            $this->throwValidationException($request, $validator);
     }
 
     /**
@@ -58,18 +66,35 @@ class PostsController extends Controller
      */
     public function edit($id)
     {
-        //
+        $post = Post::findOrFail($id);
+        return view("admin.blog.posts.edit")->withPost($post);
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  int  $id
+     * @param Request $request
+     * @param  int $id
      * @return Response
      */
-    public function update($id)
+    public function update(Request $request, $id)
     {
-        //
+        $validator = \Validator::make($request->all(), [
+            'title' => 'required|max:255|unique:posts',
+            'description' => 'required|max:5000',
+            'content' => 'required|max:40000',
+            'active_from' => 'date',
+            'state' => 'required|integer|min:0|max:2',
+            'disable_comments' => 'boolean'
+        ]);
+
+        if (!$validator->fails()) {
+            /*
+             * TODO::Categories check...
+             * */
+        }
+        else
+            $this->throwValidationException($request, $validator);
     }
 
     /**
@@ -80,6 +105,7 @@ class PostsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $permission = Post::find($id);
+        return ["success" => $permission ? $permission->delete() : false];
     }
 }
