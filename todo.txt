@@ -12,3 +12,6 @@
 10. Show posts in main page
 11. Posts: binding to categories
 12. Show categories
+13. Static pages
+14. Ajax loading
+15. likes, views for posts

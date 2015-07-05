@@ -47,6 +47,7 @@ Route::group(["prefix" => "admin", "middleware" => "access:dashboard_view"], fun
 
     Route::group(["prefix" => "blog", "middleware" => "access:posts_manage"], function() {
         Route::controllers(['categories' => 'Admin\CategoriesController']);
+        Route::resource("posts", "Admin\PostsController");
     });
 
     Route::group(["prefix" => "user"], function() {
