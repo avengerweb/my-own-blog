@@ -15,3 +15,4 @@
 13. Static pages
 14. Ajax loading
 15. likes, views for posts
+16. File(images) upload for posts

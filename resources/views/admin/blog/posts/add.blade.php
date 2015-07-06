@@ -1,11 +1,11 @@
-@extends("admin.main");
+@extends("admin.main")
 
 @section("content")
 <h1 class="title">Post add</h1>
 
 @include('errors.list')
 
-{!! Form::open(["action" => "DashboardController@update", "class" => "form-horizontal col-lg-4 col-md-8 col-sm-10"]) !!}
+{!! Form::open(["action" => "Admin\PostsController@store", "method" => "POST", "class" => "form-horizontal"]) !!}
 
     <!--- Title Field --->
     <div class="form-group">
@@ -22,7 +22,7 @@
     <!--- Content Field --->
     <div class="form-group">
         {!! Form::label('content', 'Content:') !!}
-        {!! Form::textarea('content', null, ['class' => 'form-control']) !!}
+        {!! Form::textarea('content', null, ['class' => 'form-control html']) !!}
     </div>
 
 
