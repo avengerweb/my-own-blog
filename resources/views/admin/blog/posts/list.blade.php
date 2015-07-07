@@ -26,6 +26,7 @@
             </tr>
         @endforeach
     </table>
+    {!! $posts->render() !!}
 @endsection
 
 @section("scripts")

@@ -23,7 +23,8 @@ $.fn.delete = function(url, data, success, dataType) {
 };
 
 $(document).ready(function() {
-    $.get()
+    $('.datepicker').datepicker();
+
     tinymce.init({
         selector: "textarea.html",
         theme: "modern",

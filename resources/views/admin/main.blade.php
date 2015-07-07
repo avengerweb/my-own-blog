@@ -10,6 +10,7 @@
 
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.0/css/bootstrap-datepicker.min.css">
 
     <!-- Custom styles for this template -->
     <link href="/css/admin.css" rel="stylesheet">
@@ -55,7 +56,8 @@
             @if (Auth::check())
             <ul class="nav nav-sidebar">
                 <li><a href="{{ action("Admin\CategoriesController@getIndex") }}">Blog: Categories</a></li>
-                <li><a href="#">Blog: posts</a></li>
+                <li><a href="{{ action("Admin\PostsController@index") }}">Blog: Posts</a></li>
+                <li><a href="{{ action("Admin\PostsController@create") }}">Blog: Posts: add</a></li>
                 <li><a href="#">Analytics</a></li>
                 <li><a href="#">Export</a></li>
             </ul>
@@ -94,6 +96,8 @@
 <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.3/moment.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.3/locales.min.js"></script>
 <script src="//tinymce.cachefly.net/4.2/tinymce.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.0/js/bootstrap-datepicker.min.js"></script>
+
 <script src="/js/admin.js"></script>
 
 @yield("scripts")

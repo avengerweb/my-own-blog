@@ -18,7 +18,7 @@ class PostsController extends Controller
     public function index()
     {
         return view("admin.blog.posts.list", [
-            "posts" => Post::toShow()->simplePaginate(10)
+            "posts" => Post::orderBy("id", "desc")->paginate(10)
         ]);
     }
 
@@ -53,9 +53,24 @@ class PostsController extends Controller
             /*
              * TODO::Categories check...
              * */
+            $post = new Post();
+            $post->title = $request->get("title");
+            $post->generateSlug();
+            $post->description = $request->get("description");
+            $post->content = $request->get("content");
+
+            if ($request->get('state') == 2)
+                $post->active_from = $request->get("active_from");
+
+            $post->state = $request->get("state");
+            $post->disable_comments = $request->has("disable_comments");
+
+            $post->save();
         }
         else
             $this->throwValidationException($request, $validator);
+
+        return redirect()->back();
     }
 
     /**
@@ -92,6 +107,20 @@ class PostsController extends Controller
             /*
              * TODO::Categories check...
              * */
+            $post = new Post();
+            $post->title = $request->get("title");
+            $post->generateSlug();
+            $post->description = $request->get("description");
+            $post->content = $request->get("content");
+
+            if ($request->get('state') == 2)
+                $post->active_from = $request->get("active_from");
+
+            $post->state = $request->get("state");
+            $post->disable_comments = $request->has("disable_comments");
+
+            $post->save();
+
         }
         else
             $this->throwValidationException($request, $validator);
