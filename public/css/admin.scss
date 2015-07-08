@@ -1,3 +1,5 @@
+@import "styles/mixin";
+
 body {
   padding-top:50px;
 }
@@ -47,8 +49,8 @@ body {
   }
 
   @media (min-width: 768px) {
-      padding-right: 40px;
-      padding-left: 40px;
+    padding-right: 40px;
+    padding-left: 40px;
   }
 }
 .placeholders {
