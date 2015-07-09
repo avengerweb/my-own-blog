@@ -2,7 +2,13 @@
  * Created by avengerweb on 23.06.15.
  */
 
-$.fn.put = function(url, data, success, dataType) {
+$.put = function(url, data, success, dataType) {
+    if ( $.isFunction(data) ){
+        dataType = dataType || success;
+            success = data;
+            data = {};
+    }
+
     $.ajax({
         url: url,
         type: "PUT",
@@ -12,7 +18,13 @@ $.fn.put = function(url, data, success, dataType) {
     });
 };
 
-$.fn.delete = function(url, data, success, dataType) {
+$.delete = function(url, data, success, dataType) {
+    if ( $.isFunction(data) ){
+        dataType = dataType || success;
+            success = data;
+            data = {};
+    }
+
     $.ajax({
         url: url,
         type: "DELETE",
@@ -23,7 +35,18 @@ $.fn.delete = function(url, data, success, dataType) {
 };
 
 $(document).ready(function() {
-    $('.datepicker').datepicker();
+    var csrftoken = $('meta[name=_token]').attr('content');
+    $.ajaxSetup({
+        beforeSend: function (xhr, settings) {
+            if (!/^(GET|HEAD|OPTIONS|TRACE)$/i.test(settings.type)) {
+                xhr.setRequestHeader("X-XSRF-TOKEN", csrftoken)
+            }
+        }
+    });
+
+    $('.datepicker').datepicker({
+        format: "yyyy-mm-dd 00:00:00"
+    });
 
     tinymce.init({
         selector: "textarea.html",

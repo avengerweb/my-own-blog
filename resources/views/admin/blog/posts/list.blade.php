@@ -36,10 +36,12 @@
 
             list.on("click", ".action-remove-post", function() {
                 var tr = $(this).closest("tr");
-                $.get($(this).data("action"), function(data) {
-
+                console.log(tr);
+                $.delete($(this).data("action"), function(data) {
+                    console.log(data);
                     if (data.success) {
                         tr.remove();
+                        console.log("remove");
                     }
 
                 }, "json");

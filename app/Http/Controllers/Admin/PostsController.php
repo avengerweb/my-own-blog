@@ -94,8 +94,10 @@ class PostsController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $post = Post::findOrFail($id);
+
         $validator = \Validator::make($request->all(), [
-            'title' => 'required|max:255|unique:posts',
+            'title' => 'required|max:255' . ( $post->title == $request->get("title") ? '' : '|unique:posts' ),
             'description' => 'required|max:5000',
             'content' => 'required|max:40000',
             'active_from' => 'date',
@@ -107,7 +109,6 @@ class PostsController extends Controller
             /*
              * TODO::Categories check...
              * */
-            $post = new Post();
             $post->title = $request->get("title");
             $post->generateSlug();
             $post->description = $request->get("description");
@@ -124,6 +125,8 @@ class PostsController extends Controller
         }
         else
             $this->throwValidationException($request, $validator);
+
+        return redirect()->back();
     }
 
     /**
