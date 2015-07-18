@@ -1,3 +1,4 @@
+@if (!\Request::ajax())
 <div class="welcome">
     <div class="title laravel-title">
         Laravel 5
@@ -9,4 +10,4 @@
     </div>
     <div class="quote">{{ Inspiring::quote() }}</div>
 </div>
-
+@endif

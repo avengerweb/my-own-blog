@@ -1,3 +1,6 @@
+@if (\Request::ajax())
+    @yield("content")
+@else
 <!DOCTYPE html>
 <html>
 <head>
@@ -31,7 +34,7 @@
                 <a href="#"><i class="glyphicon glyphicon-user"></i><span>Обо мне</span></a>
                 <a href="#"><i class="glyphicon glyphicon-picture"></i><span>Портфолио</span></a>
                 <a href="#"><i class="glyphicon glyphicon-earphone"></i><span>Связь</span></a>
-                <a href="https://github.com/avengerweb/my-own-blog" target="_blank"><i class="glyphicon glyphicon-random"></i><span>GitHub</span></a>
+                <a class="direct" href="https://github.com/avengerweb/my-own-blog" target="_blank"><i class="glyphicon glyphicon-random"></i><span>GitHub</span></a>
             </div>
         </nav>
         <button class="close-button" id="close-button">Close Menu</button>
@@ -56,9 +59,11 @@
 <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.3/moment.min.js"></script>
 {{--<script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.3/locales.min.js"></script>--}}
 <script src="/js/snap.svg-min.js"></script>
+<script src="/js/ajax-nav.js"></script>
 <script src="/js/AvengerWeb.js"></script>
 
 {!! Config::get("website.counters") !!}
 
 </body>
 </html>
+@endif

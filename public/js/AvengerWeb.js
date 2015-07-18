@@ -14,6 +14,10 @@ var AvengerWeb = {
             var t = $(this);
             t.html(moment(t.html()).calendar());
         });
+
+        this.container.find(".container").ajaxNav({
+            intTrigger: "a:not(.direct)"
+        });
     },
     welcome: function() {
         this.content.hide();
