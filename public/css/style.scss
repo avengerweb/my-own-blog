@@ -36,9 +36,9 @@ body {
 header {
   position: fixed;
   height: 100%;
-  width: 300px;
-  overflow: hidden;
+  //overflow: hidden;
   z-index: 1;
+
 
   @media (max-height: 400px) {
     position: absolute;
@@ -210,7 +210,7 @@ header {
   }
 
   &.show-menu {
-
+    width: 300px;
     .menu-wrap,
     .content::before {
       -webkit-transition-delay: 0s;
@@ -341,6 +341,7 @@ main {
           font-weight: bold;
           font-size: 32px;
           top: -11px;
+
           @include rotate(90deg);
         }
       }

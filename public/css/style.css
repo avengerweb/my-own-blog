@@ -27,8 +27,6 @@ body {
 header {
   position: fixed;
   height: 100%;
-  width: 300px;
-  overflow: hidden;
   z-index: 1; }
   @media (max-height: 400px) {
     header {
@@ -171,27 +169,29 @@ header {
     top: 0;
     right: 0;
     fill: #373a47; }
-  header.show-menu .menu-wrap,
-  header.show-menu .content::before {
-    -webkit-transition-delay: 0s;
-    transition-delay: 0s; }
-  header.show-menu .menu-wrap,
-  header.show-menu .menu,
-  header.show-menu .close-button,
-  header.show-menu .morph-shape,
-  header.show-menu .content::before {
-    -webkit-transform: translate3d(0, 0, 0);
-    transform: translate3d(0, 0, 0); }
-  header.show-menu .menu, header.show-menu .close-button {
-    opacity: 1;
-    -webkit-transition: opacity 0.3s, -webkit-transform 0.3s;
-    transition: opacity 0.3s, transform 0.3s;
-    -webkit-transition-delay: 0.4s;
-    transition-delay: 0.4s; }
-  header.show-menu .content::before {
-    opacity: 1;
-    -webkit-transition: opacity 0.4s;
-    transition: opacity 0.4s; }
+  header.show-menu {
+    width: 300px; }
+    header.show-menu .menu-wrap,
+    header.show-menu .content::before {
+      -webkit-transition-delay: 0s;
+      transition-delay: 0s; }
+    header.show-menu .menu-wrap,
+    header.show-menu .menu,
+    header.show-menu .close-button,
+    header.show-menu .morph-shape,
+    header.show-menu .content::before {
+      -webkit-transform: translate3d(0, 0, 0);
+      transform: translate3d(0, 0, 0); }
+    header.show-menu .menu, header.show-menu .close-button {
+      opacity: 1;
+      -webkit-transition: opacity 0.3s, -webkit-transform 0.3s;
+      transition: opacity 0.3s, transform 0.3s;
+      -webkit-transition-delay: 0.4s;
+      transition-delay: 0.4s; }
+    header.show-menu .content::before {
+      opacity: 1;
+      -webkit-transition: opacity 0.4s;
+      transition: opacity 0.4s; }
   header .logo {
     margin-left: 30px;
     position: relative; }
