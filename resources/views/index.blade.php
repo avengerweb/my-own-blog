@@ -27,7 +27,7 @@
                 </a>
             </div>
             <div class="icon-list">
-                <a href="#"><i class="glyphicon glyphicon-home"></i><span>Главная</span></a>
+                <a href="/" class="ajax"><i class="glyphicon glyphicon-home"></i><span>Главная</span></a>
                 <a href="#"><i class="glyphicon glyphicon-user"></i><span>Обо мне</span></a>
                 <a href="#"><i class="glyphicon glyphicon-picture"></i><span>Портфолио</span></a>
                 <a href="#"><i class="glyphicon glyphicon-earphone"></i><span>Связь</span></a>

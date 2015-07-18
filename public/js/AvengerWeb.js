@@ -6,6 +6,7 @@ var AvengerWeb = {
     container: null,
     initialize: function() {
         this.container = $("#content");
+        this.content = $(".content-container");
         this.menu.initialize();
         this.welcome();
 
@@ -15,6 +16,7 @@ var AvengerWeb = {
         });
     },
     welcome: function() {
+        this.content.hide();
         this.container.addClass("welcome-animate");
         var welcome = this.container.find(".welcome");
         var title = welcome.find(".laravel-title");
@@ -53,12 +55,14 @@ var AvengerWeb = {
                             welcome.css("z-index", "1001").animate({left:147, "margin-top": -179}, 600, function() {
                                 $(this).hide();
                                 menuLogo.css("visibility", "visible");
+                                AvengerWeb.content.show();
                                 $(".menu-button").removeClass("hidden");
                             });
                         });
                     }, 1200);
                     setTimeout(function() {
                         AvengerWeb.menu.toggleMenu();
+                        $(".blog").removeClass("hidden");
                     }, 500);
                     $(this).addClass("active");
                 });

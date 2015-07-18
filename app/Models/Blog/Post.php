@@ -55,10 +55,19 @@ class Post extends Model
      * @param \Illuminate\Database\Query\Builder $query
      * @return \Illuminate\Database\Query\Builder|\App\Models\Blog\Post
      */
-    public function scopeToShow($query) {
-        return $query->whereState(1)->orWhere(function($query) {
+    public function scopeToShow($query)
+    {
+        return $query->whereState(1)->orWhere(function ($query) {
             $query->whereState(2)->whereActiveFrom("<", (new \DateTime)->format("Y-m-d H:i:s"));
         });
+    }
+
+    /**
+     * Returning full url to post
+     * @return string
+     */
+    public function url() {
+        return action("HomeController@getPost", [$this->slug]);
     }
 
     /**

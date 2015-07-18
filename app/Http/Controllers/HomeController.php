@@ -6,6 +6,7 @@ use App\Models\Blog\Post;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Carbon\Carbon;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 
 class HomeController extends Controller
 {
@@ -26,7 +27,16 @@ class HomeController extends Controller
      */
     public function welcome()
     {
-        return view("pages.welcome")->withPosts(Post::toShow()->simplePaginate(10));
+        return view("pages.main")->withPosts(Post::toShow()->simplePaginate(10));
+    }
+
+    public function getPost($slug) {
+        $post = Post::whereSlug($slug)->first();
+        if (!$post)
+            throw (new ModelNotFoundException)->setModel(get_class($post));
+        else {
+            return view("pages.post")->withPost($post);
+        }
     }
 
     /**

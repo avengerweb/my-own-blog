@@ -12,6 +12,7 @@
 */
 
 Route::get('/', "HomeController@welcome");
+Route::get('/posts/{slug}', "HomeController@getPost");
 
 Route::group(["prefix" => "user"], function() {
 
