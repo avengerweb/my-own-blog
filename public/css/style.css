@@ -8,8 +8,7 @@ body {
   color: #B0BEC5;
   font-weight: 300;
   font-family: 'Roboto', sans-serif;
-  position: relative;
-  min-width: 640px; }
+  position: relative; }
 
 .btn-default {
   -webkit-transition: all 250ms;
@@ -241,6 +240,8 @@ main {
     height: 100%;
     overflow: hidden;
     position: relative; }
+    main #content.welcome-animate {
+      min-width: 640px; }
     main #content .letter {
       display: block;
       float: left;

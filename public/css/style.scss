@@ -16,7 +16,6 @@ body {
   font-family: 'Roboto', sans-serif;
   position: relative;
   //TODO::Make full responsive or adaptive maybe ;)
-  min-width: 640px;
 }
 
 .btn-default {
@@ -301,6 +300,10 @@ main {
 
   #content {
     height: 100%;
+
+    &.welcome-animate {
+      min-width: 640px;
+    }
 
     overflow: hidden;
     position: relative;

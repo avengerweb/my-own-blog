@@ -61,6 +61,7 @@ var AvengerWeb = {
                                 menuLogo.css("visibility", "visible");
                                 AvengerWeb.content.show();
                                 $(".menu-button").removeClass("hidden");
+                                AvengerWeb.container.removeClass("welcome-animate");
                             });
                         });
                     }, 1200);
