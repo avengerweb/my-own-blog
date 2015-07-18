@@ -10,14 +10,14 @@ var AvengerWeb = {
         this.menu.initialize();
         this.welcome();
 
-        $(".blog .date").each(function() {
-            var t = $(this);
-            t.html(moment(t.html()).calendar());
+        this.container.find(".container").ajaxNav({
+            intTrigger: "a:not(.direct)",
+            loaded: function() {
+                AvengerWeb.reloadDates();
+            }
         });
 
-        this.container.find(".container").ajaxNav({
-            intTrigger: "a:not(.direct)"
-        });
+        AvengerWeb.reloadDates();
 
         var csrftoken = $('meta[name=_token]').attr('content');
         $.ajaxSetup({
@@ -26,6 +26,12 @@ var AvengerWeb = {
                     xhr.setRequestHeader("X-XSRF-TOKEN", csrftoken)
                 }
             }
+        });
+    },
+    reloadDates: function() {
+        $(".blog .date").each(function() {
+            var t = $(this);
+            t.html(moment(t.html()).calendar());
         });
     },
     welcome: function() {

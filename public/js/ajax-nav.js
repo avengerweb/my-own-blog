@@ -46,6 +46,7 @@
                     var j = b.data("ajaxNav-overlay");
                     if (a.switchContent) {
                         b.html(g);
+
                         if (a.docTitle)
                             document.title = a.docTitle;
                         a.scrollToPosition && e.scrollTo(a.url.replace(/^[^#]*/, ""), a.scrollSpeed)
