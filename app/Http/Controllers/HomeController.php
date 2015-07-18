@@ -36,6 +36,23 @@ class HomeController extends Controller
         if (!$post)
             throw (new ModelNotFoundException)->setModel(get_class($post));
         else {
+            //TODO:: Move it from there and add some logic :)
+            if ($viewed = \Session::get("viewed"))
+            {
+                if (!isset($viewed[$slug]))
+                {
+                    $viewed[$slug] = true;
+                    \Session::set("viewed", $viewed);
+                    $post->views++;
+                    $post->save();
+                }
+            } else {
+                $viewed[$slug] = true;
+                \Session::set("viewed", $viewed);
+                $post->views++;
+                $post->save();
+            }
+
             return view("pages.post")->withPost($post);
         }
     }
