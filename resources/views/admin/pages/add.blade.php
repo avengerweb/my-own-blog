@@ -22,7 +22,7 @@
     <!--- Keywords Field --->
     <div class="form-group">
         {!! Form::label('keywords', 'Meta keywords:') !!}
-        {!! Form::textarea('keywords', null, ['class' => 'form-control']) !!}
+        {!! Form::text('keywords', null, ['class' => 'form-control']) !!}
     </div>
 
     <!--- Description Field --->
@@ -37,24 +37,17 @@
         {!! Form::textarea('content', null, ['class' => 'form-control html']) !!}
     </div>
 
-    <div class="col-xs-5 state-box">
-        <!--- Select state Field --->
-        <div class="form-group col-xs-5">
-            {!! Form::label('state', 'State:') !!}
-            {!! Form::select('state', [0 => "Disabled", 1 => "Enabled"], 1, ['class' => 'form-control']) !!}
-        </div>
-        <!--- Show date Field --->
-        <div class="form-group col-xs-6">
-            {!! Form::label('Show after:', 'Show date:') !!}
-            {!! Form::text('Show after:', null, ['class' => 'form-control datepicker']) !!}
-        </div>
-
-        <div class="clearfix"></div>
+    <!--- Select state Field --->
+    <div class="form-group col-xs-3">
+        {!! Form::label('active', 'Active:') !!}
+        {!! Form::select('active', [0 => "Disabled", 1 => "Enabled"], 1, ['class' => 'form-control']) !!}
     </div>
-<div class="clearfix"></div>
+
+
+    <div class="clearfix"></div>
 
     <div class="form-group">
-    <button class="btn btn-default">Add</button>
+        <button class="btn btn-default">Add</button>
     </div>
 {!! Form::close() !!}
 

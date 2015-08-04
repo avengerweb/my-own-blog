@@ -17,7 +17,7 @@
             <tr>
                 <td>{{ $page->title }}</td>
                 <td>{{ $page->url }}</td>
-                <td>{{ $page->state }}</td>
+                <td>{{ $page->active ? "Enabled" : "Disabled" }}</td>
                 <td>{{ $page->created_at }}</td>
                 <td class="text-center">
                     <a class="btn btn-default action-edit-page" href="{{ action("Admin\PagesController@edit", $page->id) }}">Edit</a>

@@ -58,3 +58,5 @@ Route::group(["prefix" => "admin", "middleware" => "access:dashboard_view"], fun
         Route::controllers(['permissions' => 'Admin\PermissionsController']);
     });
 });
+
+Route::get('/{url}', "HomeController@getPage");

@@ -43,7 +43,7 @@ class PagesController extends Controller
         $validator = \Validator::make($request->all(), [
             'title' => 'required|max:255',
             'keywords' => 'max:255',
-            'url' => 'required|max:255|alpha_numeric|unique:pages',
+            'url' => 'required|max:255|alpha_dash|unique:pages',
             'description' => 'required|max:1000',
             'content' => 'required|max:40000',
             'active' => 'boolean'
@@ -92,7 +92,7 @@ class PagesController extends Controller
 
         $validator = \Validator::make($request->all(), [
             'title' => 'required|max:255',
-            'url' => 'required|alpha_numeric|max:255' . ( $page->url == $request->get("url") ? '' : '|unique:pages' ),
+            'url' => 'required|alpha_dash|max:255' . ( $page->url == $request->get("url") ? '' : '|unique:pages' ),
             'keywords' => 'max:255',
             'description' => 'required|max:1000',
             'content' => 'required|max:40000',

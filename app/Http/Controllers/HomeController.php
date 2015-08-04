@@ -5,8 +5,10 @@ namespace App\Http\Controllers;
 use App\Models\Blog\Post;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use App\Models\Page;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
+use Illuminate\Support\Facades\Config;
 use Request;
 
 class HomeController extends Controller
@@ -31,6 +33,32 @@ class HomeController extends Controller
         return view("pages.main")->withPosts(Post::toShow()->simplePaginate(10));
     }
 
+    /**
+     * Get static page by url
+     *
+     * @param $url
+     * @return mixed
+     */
+    public function getPage($url) {
+        $page = Page::whereUrl($url)->first();
+        if (!$page)
+            throw (new ModelNotFoundException)->setModel(get_class($page));
+        else {
+
+            \Config::set("website.title", $page->title);
+            \Config::set("website.keywords", $page->keywords);
+            \Config::set("website.description", $page->description);
+
+            return view("pages.page")->withPage($page);
+        }
+    }
+
+    /**
+     * Get post from blog by slug
+     *
+     * @param $slug
+     * @return mixed
+     */
     public function getPost($slug) {
         $post = Post::whereSlug($slug)->first();
         if (!$post)

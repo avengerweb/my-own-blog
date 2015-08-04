@@ -13,10 +13,22 @@
         {!! Form::text('title', $page->title, ['class' => 'form-control']) !!}
     </div>
 
+    <!--- URL Field --->
+    <div class="form-group">
+        {!! Form::label('url', 'URL:') !!}
+        {!! Form::text('url', $page->url, ['class' => 'form-control']) !!}
+    </div>
+
+    <!--- Meta keywords Field --->
+    <div class="form-group">
+        {!! Form::label('keywords', 'Meta keywords:') !!}
+        {!! Form::text('keywords', $page->keywords, ['class' => 'form-control']) !!}
+    </div>
+
     <!--- Description Field --->
     <div class="form-group">
-        {!! Form::label('description', 'Description:') !!}
-        {!! Form::textarea('description', $page->description, ['class' => 'form-control html']) !!}
+        {!! Form::label('description', 'Meta description:') !!}
+        {!! Form::textarea('description', $page->description, ['class' => 'form-control']) !!}
     </div>
 
     <!--- Content Field --->
@@ -25,19 +37,13 @@
         {!! Form::textarea('content', $page->content, ['class' => 'form-control html']) !!}
     </div>
 
-    <div class="col-xs-5 state-box">
-        <!--- Select state Field --->
-        <div class="form-group col-xs-5">
-            {!! Form::label('state', 'State:') !!}
-            {!! Form::select('state', [0 => "Disabled", 1 => "Enabled", 2 => "Show after date"], $page->state, ['class' => 'form-control']) !!}
-        </div>
-        <!--- Show date Field --->
-        <div class="form-group col-xs-6">
-            {!! Form::label('active_from', 'Show date:') !!}
-            {!! Form::text('active_from', $page->active_from, ['class' => 'form-control datepicker']) !!}
-        </div>
-        <div class="clearfix"></div>
+
+    <!--- Select state Field --->
+    <div class="form-group col-xs-3">
+        {!! Form::label('active', 'Active:') !!}
+        {!! Form::select('active', [0 => "Disabled", 1 => "Enabled"], $page->active, ['class' => 'form-control']) !!}
     </div>
+
 
 
 
