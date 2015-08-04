@@ -51,6 +51,8 @@ Route::group(["prefix" => "admin", "middleware" => "access:dashboard_view"], fun
         Route::resource("posts", "Admin\PostsController");
     });
 
+    Route::resource("pages", "Admin\PagesController");
+
     Route::group(["prefix" => "user"], function() {
         Route::controllers(['manage' => 'Admin\UsersController']);
         Route::controllers(['permissions' => 'Admin\PermissionsController']);

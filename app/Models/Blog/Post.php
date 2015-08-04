@@ -35,7 +35,7 @@ use Illuminate\Support\Str;
  * @method static \Illuminate\Database\Query\Builder|\App\Models\Blog\Post whereCreatedAt($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Models\Blog\Post whereUpdatedAt($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Models\Blog\Post toShow()
- * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Blog\Category[] $categories 
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Blog\Category[] $categories
  */
 class Post extends Model
 {
