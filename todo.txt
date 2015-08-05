@@ -8,11 +8,13 @@
 6. Add post categories + editing (add / edit /delete) - done
 7. Unset custom config variables
 8. Validation on save config - not need
-9. Posts (create / edit / remove)
-10. Show posts in main page
+9. Posts (create / edit / remove) - done
+10. Show posts in main page - done
 11. Posts: binding to categories
 12. Show categories
-13. Static pages
-14. Ajax loading
-15. likes, views for posts
+13. Static pages -done
+14. Ajax loading - done
+15. Posts:
+  1. likes
+  2. views - done 
 16. File(images) upload for posts

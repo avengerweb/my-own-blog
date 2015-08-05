@@ -34,7 +34,7 @@
     <!--- Counter code Field --->
     <div class="form-group">
         {!! Form::label('counters', 'Counter code:') !!}
-        {!! Form::textarea('counters', Config::get("website.counter"), ['class' => 'form-control']) !!}
+        {!! Form::textarea('counters', Config::get("website.counters"), ['class' => 'form-control']) !!}
     </div>
 
     <div class="form-group">
