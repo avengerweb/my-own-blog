@@ -33,9 +33,8 @@
             </div>
             <div class="icon-list">
                 <a href="/" class="ajax"><i class="glyphicon glyphicon-home"></i><span>Главная</span></a>
-                <a href="#"><i class="glyphicon glyphicon-user"></i><span>Обо мне</span></a>
+                <a href="/about"><i class="glyphicon glyphicon-user"></i><span>Обо мне</span></a>
                 <a href="#"><i class="glyphicon glyphicon-picture"></i><span>Портфолио</span></a>
-                <a href="#"><i class="glyphicon glyphicon-earphone"></i><span>Связь</span></a>
                 <a class="direct" href="https://github.com/avengerweb/my-own-blog" target="_blank"><i class="glyphicon glyphicon-random"></i><span>GitHub</span></a>
             </div>
         </nav>
