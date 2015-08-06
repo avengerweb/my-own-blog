@@ -4,13 +4,11 @@ Demo: http://avenger-web.com
 
 ### Easy install
 ```
-
 git clone https://github.com/avengerweb/my-own-blog.git blog
 cd blog
 composer install
 php artisan migrate
-php artissan db:seed
-
+php artisan db:seed
 ```
 ### License
 
