@@ -34,6 +34,21 @@ $.delete = function(url, data, success, dataType) {
     });
 };
 
+function elFinderBrowser (field_name, url, type, win) {
+    tinymce.activeEditor.windowManager.open({
+        file: '/elfinder/tinymce4',// use an absolute path!
+        title: 'elFinder 2.0',
+        width: 900,
+        height: 450,
+        resizable: 'yes'
+    }, {
+        setUrl: function (url) {
+            win.document.getElementById(field_name).value = url;
+        }
+    });
+    return false;
+}
+
 $(document).ready(function() {
     var csrftoken = $('meta[name=_token]').attr('content');
     $.ajaxSetup({
@@ -51,6 +66,7 @@ $(document).ready(function() {
     tinymce.init({
         selector: "textarea.html",
         theme: "modern",
+        file_browser_callback : elFinderBrowser,
         plugins: [
             "advlist autolink lists link image charmap print preview hr anchor pagebreak",
             "searchreplace wordcount visualblocks visualchars code fullscreen",

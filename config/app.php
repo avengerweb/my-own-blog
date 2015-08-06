@@ -141,6 +141,7 @@ return [
          * Custom
          */
         Illuminate\Html\HtmlServiceProvider::class,
+        Barryvdh\Elfinder\ElfinderServiceProvider::class,
 
         /*
          * Application Service Providers...
