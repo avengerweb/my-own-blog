@@ -1,6 +1,6 @@
 <?php
  return array (
-  'title' => 'AvengerWeb - personal website',
+  'title' => 'AvengerWeb - personal website!!!',
   'description' => 'avenger-web.com - Website about me, include: portfolio, small blog and my contacts',
   'keywords' => 'laravel 5, blog, avenger-web, avengerweb, mr.avenger',
   'counters' => '<script>
