@@ -12,5 +12,5 @@ var elixir = require('laravel-elixir');
  */
 
 elixir(function(mix) {
-    mix.less('app.less');
+ mix.scripts(['ajax-nav.js', 'AvengerWeb.js'], 'public/js/main.js', 'public/js/')
 });

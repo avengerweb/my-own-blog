@@ -59,10 +59,13 @@
 <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.3/moment.min.js"></script>
 {{--<script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.3/locales.min.js"></script>--}}
+@if (\App::isLocal())
 <script src="/js/snap.svg-min.js"></script>
 <script src="/js/ajax-nav.js"></script>
 <script src="/js/AvengerWeb.js"></script>
-
+@else
+<script src="/js/main.js"></script>
+@endif
 {!! Config::get("website.counters") !!}
 
 </body>

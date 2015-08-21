@@ -24,14 +24,15 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        if ($this->app->environment() == 'local') {
+        if ($this->app->isLocal()) {
             $this->app->register('Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider');
             $this->app->register('Barryvdh\Debugbar\ServiceProvider');
         }
 
-        $this->app->singleton('ConfigWriter', function($app)
-        {
-            return new ConfigWriter();
-        });
+        if (starts_with(\Request::getRequestUri(), "/admin/"))
+            $this->app->singleton('ConfigWriter', function($app)
+            {
+                return new ConfigWriter();
+            });
     }
 }

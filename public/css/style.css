@@ -224,7 +224,8 @@ main {
     left: 50%;
     margin-left: -270px;
     margin-top: -70px;
-    font-family: 'Lato', sans-serif; }
+    font-family: 'Lato', sans-serif;
+    color: #B0BEC5; }
   main .title {
     font-size: 96px;
     margin-bottom: 40px; }
