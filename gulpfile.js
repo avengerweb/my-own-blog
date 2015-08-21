@@ -12,5 +12,5 @@ var elixir = require('laravel-elixir');
  */
 
 elixir(function(mix) {
- mix.scripts(['ajax-nav.js', 'AvengerWeb.js'], 'public/js/main.js', 'public/js/')
+ mix.scripts(['snap.svg-min.js', 'ajax-nav.js', 'AvengerWeb.js'], 'public/js/main.js', 'public/js/')
 });
