@@ -1,4 +1,4 @@
-/**
+ /**
  * Created by avengerweb on 19.06.15.
  */
 
@@ -9,11 +9,14 @@ var AvengerWeb = {
         this.content = $(".content-container");
         this.menu.initialize();
         this.welcome();
+	this.header = $("header");
 
         this.container.find(".container").ajaxNav({
             intTrigger: "a:not(.direct)",
             loaded: function() {
                 AvengerWeb.reloadDates();
+		if (AvengerWeb.header.hasClass("show-menu"))
+			AvengerWeb.menu.toggleMenu();
             }
         });
 
