@@ -6,17 +6,18 @@ var AvengerWeb = {
     container: null,
     initialize: function() {
         this.container = $("#content");
-        this.content = $(".content-container");
+        this.content = $(".container");
         this.menu.initialize();
         this.welcome();
-	this.header = $("header");
+	    this.header = $("header");
 
         this.container.find(".container").ajaxNav({
             intTrigger: "a:not(.direct)",
             loaded: function() {
                 AvengerWeb.reloadDates();
-		if (AvengerWeb.header.hasClass("show-menu"))
-			AvengerWeb.menu.toggleMenu();
+
+                if (AvengerWeb.header.hasClass("show-menu"))
+                    AvengerWeb.menu.toggleMenu();
             }
         });
 
@@ -32,19 +33,19 @@ var AvengerWeb = {
         });
     },
     reloadDates: function() {
-        $(".blog .date").each(function() {
+        $(".human-date").each(function() {
             var t = $(this);
             t.html(moment(t.html()).calendar());
         });
     },
     welcome: function() {
-        this.content.hide();
-        this.container.addClass("welcome-animate");
-        var welcome = this.container.find(".welcome");
+        var body = $("body");
+        var welcome = body.find(".welcome");
         var title = welcome.find(".laravel-title");
         var myTitle = welcome.find(".avenger-web");
         var text = title.text().trim().split("");
 
+        body.addClass("welcome-animate");
         var menuLogo = AvengerWeb.menu.container.find(".logo");
         menuLogo.css("visibility", "hidden").hide();
 
@@ -53,8 +54,14 @@ var AvengerWeb = {
            title.append("<span class='letter'>" + text[letter] + "</span>");
         }
 
-
         var letters = title.find(".letter");
+        var left = 0;
+        letters.each(function(i, el){
+            console.log(el);
+            var _left = letters.filter(":eq(" + (i - 1) + ")");
+            left += (_left.length ? _left.width() : 0)  + 1;
+            $(this).css("left", left);
+        });
         setTimeout(function() {
             var anim = 300;
             letters.each(function(){
@@ -66,7 +73,7 @@ var AvengerWeb = {
             });
 
             setTimeout(function() {
-                title.fadeOut(100);
+                title.hide();
                 myTitle.fadeIn(500, function() {
                     setTimeout(function() {
                         welcome.find(".quote").hide(100, function() {
@@ -74,18 +81,17 @@ var AvengerWeb = {
                             $(this).remove();
                             myTitle.find(".last-word").css({"font-size": 20, top: -6});
                             myTitle.animate({"font-size": "55px"}, 500);
-                            welcome.css("z-index", "1001").animate({left:147, "margin-top": -179}, 600, function() {
+                            welcome.css("z-index", "1001").animate({left:147, "margin-top": -384}, 600, function() {
                                 $(this).hide();
                                 menuLogo.css("visibility", "visible");
                                 AvengerWeb.content.show();
                                 $(".menu-button").removeClass("hidden");
-                                AvengerWeb.container.removeClass("welcome-animate");
+                                body.removeClass("welcome-animate");
                             });
                         });
                     }, 1200);
                     setTimeout(function() {
                         AvengerWeb.menu.toggleMenu();
-                        $(".blog").removeClass("hidden");
                     }, 500);
                     $(this).addClass("active");
                 });
