@@ -81,7 +81,7 @@ var AvengerWeb = {
                             $(this).remove();
                             myTitle.find(".last-word").css({"font-size": 20, top: -6});
                             myTitle.animate({"font-size": "55px"}, 500);
-                            welcome.css("z-index", "1001").animate({left:147, "margin-top": -384}, 600, function() {
+                            welcome.css("z-index", "1001").animate({left:147, "top": 131}, 600, function() {
                                 $(this).hide();
                                 menuLogo.css("visibility", "visible");
                                 AvengerWeb.content.show();

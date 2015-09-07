@@ -37,6 +37,7 @@ Route::group(["prefix" => "api/0.1/"], function() {
 
 Route::group(["prefix" => "admin", "middleware" => "access:dashboard_view"], function() {
     Route::get("/", "DashboardController@index");
+    Route::get("/images/{id}", '\Barryvdh\Elfinder\ElfinderController@showPopup');
 
     // Profile edit
     Route::get("/profile", "DashboardController@getCurrentProfile");

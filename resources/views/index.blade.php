@@ -20,7 +20,7 @@
     <link href="//fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en" rel="stylesheet">
     <link href="//fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="//storage.googleapis.com/code.getmdl.io/1.0.4/material.indigo-pink.min.css">
-    <link rel="stylesheet" href="//fonts.googleapis.com/icon?family=Material+Icons">
+
     <link rel="stylesheet" href="/css/style.css"/>
 
 
@@ -35,10 +35,10 @@
                 </a>
             </div>
             <div class="icon-list">
-                <a href="/" class="ajax"><i class="glyphicon glyphicon-home"></i><span>Главная</span></a>
-                <a href="/about"><i class="glyphicon glyphicon-user"></i><span>Обо мне</span></a>
-                <a href="#"><i class="glyphicon glyphicon-picture"></i><span>Портфолио</span></a>
-                <a class="direct" href="https://github.com/avengerweb/my-own-blog" target="_blank"><i class="glyphicon glyphicon-random"></i><span>GitHub</span></a>
+                <a href="/" class="ajax"><i class="material-icons">home</i><span>Главная</span></a>
+                <a href="/about"><i class="material-icons">assignment_ind</i><span>Обо мне</span></a>
+                <a href="#"><i class="material-icons">view_module</i><span>Портфолио</span></a>
+                <a class="direct" href="https://github.com/avengerweb/my-own-blog" target="_blank"><i class="material-icons">transform</i><span>GitHub</span></a>
             </div>
         </nav>
         <button class="close-button" id="close-button">Close Menu</button>

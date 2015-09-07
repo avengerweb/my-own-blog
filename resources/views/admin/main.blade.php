@@ -85,6 +85,14 @@
     </div>
 </div>
 
+<div class="modal fade mediaUpload-modal-lg" tabindex="-1" role="dialog" aria-labelledby="mediaUploadModalLabel">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <iframe src="" width="100%" height="100%" frameborder="0"></iframe>
+        </div>
+    </div>
+</div>
+
 <!-- Bootstrap core JavaScript
 ================================================== -->
 <!-- Placed at the end of the document so the pages load faster -->
@@ -94,7 +102,7 @@
 <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.3/locales.min.js"></script>
 <script src="//tinymce.cachefly.net/4.2/tinymce.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.0/js/bootstrap-datepicker.min.js"></script>
-
+<script type="text/javascript" src="/js/standalonepopup-custom.js"></script>
 <script src="/js/admin.js"></script>
 
 @yield("scripts")

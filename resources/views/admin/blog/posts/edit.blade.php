@@ -13,6 +13,17 @@
         {!! Form::text('title', $post->title, ['class' => 'form-control']) !!}
     </div>
 
+    <!--- Announce img Field --->
+    <div class="form-group">
+        {!! Form::label('announce_img', 'Announce img:') !!}
+        <div class="input-group">
+            {!! Form::text('announce_img', $post->announce_img, ['class' => 'form-control']) !!}
+            <span class="input-group-btn">
+                <button class="btn btn-default action-open-media-library" data-inputid="announce_img" type="button">Upload</button>
+            </span>
+        </div><!-- /input-group -->
+    </div>
+
     <!--- Description Field --->
     <div class="form-group">
         {!! Form::label('description', 'Description:') !!}

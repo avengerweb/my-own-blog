@@ -58,6 +58,7 @@ class PostsController extends Controller
             $post->generateSlug();
             $post->description = $request->get("description");
             $post->content = $request->get("content");
+            $post->announce_img = $request->get("announce_img");
 
             if ($request->get('state') == 2)
                 $post->active_from = $request->get("active_from");
@@ -113,6 +114,7 @@ class PostsController extends Controller
             $post->generateSlug();
             $post->description = $request->get("description");
             $post->content = $request->get("content");
+            $post->announce_img = $request->get("announce_img");
 
             if ($request->get('state') == 2)
                 $post->active_from = $request->get("active_from");
