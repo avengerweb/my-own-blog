@@ -13,3 +13,10 @@
     </div>
 </div>
 @endsection
+@section("scripts")
+    <script>
+        $(document).on("loaded", function() {
+            console.log("Ajax / Not ajax load was done");
+        });
+    </script>
+@endsection

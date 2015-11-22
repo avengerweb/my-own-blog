@@ -217,6 +217,9 @@ header {
 main {
   width: 100%;
   min-height: 100%; }
+  @media (max-width: 960px) {
+    main {
+      padding-top: 60px; } }
   main .welcome {
     text-align: center;
     position: absolute;

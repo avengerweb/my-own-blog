@@ -49,10 +49,12 @@
 
                         if (a.docTitle)
                             document.title = a.docTitle;
+
                         a.scrollToPosition && e.scrollTo(a.url.replace(/^[^#]*/, ""), a.scrollSpeed)
                     }
                     f && (b.data("jnavloaded", f), f.call(b, g));
-                    a.useHistory && h && "GET" === (a.httpmethod || "GET").toUpperCase() && k !== a.url && history.pushState(i(d.extend(a, {selector: c})), "", a.url)
+                    a.useHistory && h && "GET" === (a.httpmethod || "GET").toUpperCase() && k !== a.url && history.pushState(i(d.extend(a, {selector: c})), "", a.url);
+                    $(document).trigger("loaded");
                 },
                 error: a.error || function () {
                     a.$form && a.$form.length ? a.$form.submit() : location.href = a.url

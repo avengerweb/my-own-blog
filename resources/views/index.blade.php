@@ -1,5 +1,6 @@
 @if (\Request::ajax())
     @yield("content")
+    @yield("scripts")
 @else
 <!DOCTYPE html>
 <html>
@@ -66,6 +67,7 @@
 @else
 <script src="/js/main.js"></script>
 @endif
+@yield("scripts")
 {!! Config::get("website.counters") !!}
 
 </body>

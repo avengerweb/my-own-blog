@@ -163,4 +163,5 @@ var AvengerWeb = {
 
 $(document).ready(function() {
     AvengerWeb.initialize();
+    $(this).trigger("loaded");
 });
