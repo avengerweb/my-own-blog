@@ -35,11 +35,12 @@
             <div class="icon-list">
                 <a href="/" class="ajax"><i class="glyphicon glyphicon-home"></i><span>Главная</span></a>
                 <a href="/about"><i class="glyphicon glyphicon-user"></i><span>Обо мне</span></a>
-                <a href="#"><i class="glyphicon glyphicon-picture"></i><span>Портфолио</span></a>
+                <a href="/portfolio"><i class="glyphicon glyphicon-picture"></i><span>Портфолио</span></a>
                 <a class="direct" href="https://github.com/avengerweb/my-own-blog" target="_blank"><i class="glyphicon glyphicon-random"></i><span>GitHub</span></a>
             </div>
+            <button class="close-button" id="close-button">Close Menu</button>
+
         </nav>
-        <button class="close-button" id="close-button">Close Menu</button>
         <div class="morph-shape" id="morph-shape" data-morph-open="M-7.312,0H15c0,0,66,113.339,66,399.5C81,664.006,15,800,15,800H-7.312V0z;M-7.312,0H95c0,0,0,113.839,0,400c0,264.506,0,400,0,400H-7.312V0z">
             <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 100 800" preserveAspectRatio="none">
                 <filter id="dropshadow" height="130%">

@@ -53,8 +53,14 @@ header {
     transform: translate3d(-280px, 0, 0);
     -webkit-transition: -webkit-transform 0.4s;
     transition: transform 0.4s;
+
+    .menu {
+      position: relative;
+      width: 266px; 
+    }
+
     a {
-      color: #b8b7ad;
+      color: $black;
       border-left: 2px solid transparent;
       @include transition(all 300ms);
 
@@ -65,11 +71,11 @@ header {
       &:hover, &:focus {
         border-left-color: $red;
         color: $red;
-        background-color: rgba(255, 255, 255, 0.1);
+        background-color: rgba(55, 58, 71, 0.2);
         text-decoration: none;
 
         i {
-          color: #b8b7ad;
+          color: $red;
         }
       }
     }
@@ -204,7 +210,7 @@ header {
     height: 100%;
     top: 0;
     right: 0;
-    fill: $black;
+    fill: rgba(255,255,250,1);
   }
 
   &.show-menu {
