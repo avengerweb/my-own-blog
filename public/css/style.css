@@ -169,7 +169,7 @@ header {
     right: 0;
     fill: #373a47; }
   header.show-menu {
-    width: 300px; }
+    width: 316px; }
     header.show-menu .menu-wrap,
     header.show-menu .content::before {
       -webkit-transition-delay: 0s;
