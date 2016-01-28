@@ -53,10 +53,12 @@ header {
     transform: translate3d(-280px, 0, 0);
     -webkit-transition: -webkit-transform 0.4s;
     transition: transform 0.4s;
+    -webkit-transition-delay: 0.25s;
+    transition-delay: 0.25s;
 
     .menu {
       position: relative;
-      width: 266px; 
+      width: 266px;
     }
 
     a {
