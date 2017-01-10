@@ -20,7 +20,7 @@ class CategoriesController extends Controller
      *
      * @return Response
      */
-    public function getIndex()
+    public function index()
     {
         return view("admin.blog.categories.list")->with("categories", Category::all());
     }
@@ -31,7 +31,7 @@ class CategoriesController extends Controller
      * @param Request $request
      * @return Response
      */
-    public function postStore(Request $request)
+    public function store(Request $request)
     {
         $validator = Validator::make($request->all(), [
             'name' => 'required|max:255|unique:categories',
@@ -57,7 +57,7 @@ class CategoriesController extends Controller
      * @param  int $id
      * @return Response
      */
-    public function postUpdate(Request $request, $id)
+    public function update(Request $request, $id)
     {
         if ($category = Category::find($id)) {
 
@@ -85,7 +85,7 @@ class CategoriesController extends Controller
      * @param  int  $id
      * @return Response
      */
-    public function getDestroy($id)
+    public function destroy($id)
     {
         $category = Category::find($id);
         return ["success" => $category ? $category->delete() : false];

@@ -9,7 +9,7 @@
     <title>Dashboard Template for Bootstrap</title>
 
     <!-- Bootstrap core CSS -->
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.0/css/bootstrap-datepicker.min.css">
 
     <!-- Custom styles for this template -->
@@ -55,7 +55,7 @@
         <div class="col-sm-3 col-md-2 sidebar">
             @if (Auth::check())
             <ul class="nav nav-sidebar">
-                <li><a href="{{ action("Admin\CategoriesController@getIndex") }}">Blog: Categories</a></li>
+                <li><a href="{{ action("Admin\CategoriesController@index") }}">Blog: Categories</a></li>
                 <li><a href="{{ action("Admin\PostsController@index") }}">Blog: Posts</a></li>
                 <li><a href="{{ action("Admin\PostsController@create") }}">Blog: Posts: add</a></li>
             </ul>
@@ -66,8 +66,8 @@
             </ul>
 
             <ul class="nav nav-sidebar">
-                <li><a href="{{ action("Admin\PermissionsController@getIndex") }}">Users: Permissions</a></li>
-                <li><a href="{{ action("Admin\UsersController@getIndex") }}">Users: Manage</a></li>
+                <li><a href="{{ action("Admin\PermissionsController@index") }}">Users: Permissions</a></li>
+                <li><a href="{{ action("Admin\UsersController@index") }}">Users: Manage</a></li>
 
             </ul>
             @else

@@ -25,7 +25,7 @@ class UsersController extends Controller
      *
      * @return Response
      */
-    public function getIndex()
+    public function index(Request $request)
     {
         return view("admin.user.users")->with("users", User::all());
     }
@@ -36,7 +36,7 @@ class UsersController extends Controller
      * @param Request $request
      * @return Response
      */
-    public function postStore(Request $request)
+    public function store(Request $request)
     {
         $validator = Validator::make($request->all(), [
             'name' => 'required|max:255',
@@ -74,7 +74,7 @@ class UsersController extends Controller
      * @param  int $id
      * @return Response
      */
-    public function postUpdate(Request $request, $id)
+    public function update(Request $request, $id)
     {
         if ($user = User::find($id)) {
 
@@ -126,7 +126,7 @@ class UsersController extends Controller
      * @param  int  $id
      * @return Response
      */
-    public function getDestroy($id)
+    public function destroy($id)
     {
         $user = User::find($id);
 

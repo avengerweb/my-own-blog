@@ -18,6 +18,7 @@ Route::group(["prefix" => "user"], function() {
 
     // Authentication routes...
     Route::auth();
+    Route::get('logout', 'Auth\LoginController@logout');
 });
 
 Route::group(["prefix" => "api/0.1/"], function() {
@@ -51,6 +52,3 @@ Route::group(["prefix" => "admin", "middleware" => "access:dashboard_view"], fun
 });
 
 Route::get('/{url}', "HomeController@getPage");
-Auth::routes();
-
-Route::get('/home', 'HomeController@index');

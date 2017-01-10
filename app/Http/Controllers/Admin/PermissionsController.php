@@ -24,7 +24,7 @@ class PermissionsController extends Controller
      *
      * @return Response
      */
-    public function getIndex()
+    public function index()
     {
         return view("admin.user.permissions")->with("permissions", Permission::orderBy("level")->get());
     }
@@ -35,7 +35,7 @@ class PermissionsController extends Controller
      * @param Request $request
      * @return Response
      */
-    public function postStore(Request $request)
+    public function store(Request $request)
     {
         $validator = Validator::make($request->all(), [
             'permission' => 'required|max:255|alpha_dash|unique:permissions',
@@ -62,7 +62,7 @@ class PermissionsController extends Controller
      * @param  int $id
      * @return Response
      */
-    public function postUpdate(Request $request, $id)
+    public function update(Request $request, $id)
     {
         if ($permission = Permission::find($id)) {
 
@@ -88,7 +88,7 @@ class PermissionsController extends Controller
      * @param  int  $id
      * @return Response
      */
-    public function getDestroy($id)
+    public function destroy($id)
     {
         $permission = Permission::find($id);
         return ["success" => $permission ? $permission->delete() : false];
