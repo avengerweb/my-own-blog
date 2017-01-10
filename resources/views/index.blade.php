@@ -49,7 +49,7 @@
     </div>
 
 <link rel="stylesheet" href="//code.getmdl.io/1.3.0/material.deep_purple-red.min.css" />
-<link rel="stylesheet" href="/css/style.css"/>
+<link rel="stylesheet" href="/css/style.css?1"/>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.3/moment.min.js"></script>
