@@ -8,6 +8,6 @@
             Avenger<span class="last-word">Web</span>
         </div>
     </div>
-    <div class="quote">{{ Inspiring::quote() }}</div>
+    <div class="quote">{{ \Illuminate\Foundation\Inspiring::quote() }}</div>
 </div>
 @endif

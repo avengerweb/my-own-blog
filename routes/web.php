@@ -2,12 +2,12 @@
 
 /*
 |--------------------------------------------------------------------------
-| Application Routes
+| Web Routes
 |--------------------------------------------------------------------------
 |
-| Here is where you can register all of the routes for an application.
-| It's a breeze. Simply tell Laravel the URIs it should respond to
-| and give it the controller to call when that URI is requested.
+| This file is where you may define all of the routes that are handled
+| by your application. Just tell Laravel the URIs it should respond
+| to using a Closure or controller method. Build something great!
 |
 */
 
@@ -17,16 +17,7 @@ Route::get('/posts/{slug}', "HomeController@getPost");
 Route::group(["prefix" => "user"], function() {
 
     // Authentication routes...
-    Route::get('login', 'Auth\AuthController@getLogin');
-    Route::post('login', 'Auth\AuthController@postLogin');
-    Route::get('logout', 'Auth\AuthController@getLogout');
-
-    // Registration routes...
-    Route::get('register', 'Auth\AuthController@getRegister');
-    Route::post('register', 'Auth\AuthController@postRegister');
-
-    Route::controllers(['password' => 'Auth\PasswordController']);
-
+    Route::auth();
 });
 
 Route::group(["prefix" => "api/0.1/"], function() {
@@ -47,16 +38,19 @@ Route::group(["prefix" => "admin", "middleware" => "access:dashboard_view"], fun
     Route::post("/settings", "DashboardController@postConfigEdit");
 
     Route::group(["prefix" => "blog", "middleware" => "access:posts_manage"], function() {
-        Route::controllers(['categories' => 'Admin\CategoriesController']);
+        Route::resource('categories', 'Admin\CategoriesController');
         Route::resource("posts", "Admin\PostsController");
     });
 
     Route::resource("pages", "Admin\PagesController");
 
     Route::group(["prefix" => "user"], function() {
-        Route::controllers(['manage' => 'Admin\UsersController']);
-        Route::controllers(['permissions' => 'Admin\PermissionsController']);
+        Route::resource('manage', 'Admin\UsersController');
+        Route::resource('permissions', 'Admin\PermissionsController');
     });
 });
 
 Route::get('/{url}', "HomeController@getPage");
+Auth::routes();
+
+Route::get('/home', 'HomeController@index');

@@ -5,19 +5,22 @@
   "license": "MIT",
   "type": "project",
   "require": {
-    "php": ">=5.5.9",
-    "laravel/framework": "5.1.*",
-    "illuminate/html": "5.0.*",
-    "barryvdh/laravel-elfinder": "0.3.*@dev"
+    "php": ">=5.6.4",
+    "laravel/framework": "5.3.*",
+    "laravelcollective/html": "5.3.*",
+    "barryvdh/laravel-elfinder": "^0.3.7",
+    "elasticsearch/elasticsearch": "~2.0",
+    "laravel/scout": "dev-master"
   },
   "require-dev": {
     "fzaninotto/faker": "~1.4",
     "mockery/mockery": "0.9.*",
-    "phpunit/phpunit": "~4.0",
-    "phpspec/phpspec": "~2.1",
-    "barryvdh/laravel-ide-helper": "~2.0@dev",
-    "doctrine/dbal": "~2.3",
-    "barryvdh/laravel-debugbar": "dev-master"
+    "phpunit/phpunit": "~5.0",
+    "symfony/css-selector": "3.1.*",
+    "symfony/dom-crawler": "3.1.*",
+    "doctrine/dbal": "~2.5",
+    "barryvdh/laravel-debugbar": "dev-master",
+    "barryvdh/laravel-ide-helper": "~2.0@dev"
   },
   "autoload": {
     "classmap": [
