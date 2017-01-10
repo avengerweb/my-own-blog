@@ -3,20 +3,14 @@
 @section("content")
 @include("pages.welcome")
 
-<div class="content-container page">
-    <div class="page">
-        <h1>{{ $page->title }}</h1>
-
-        <div class="post-text">
+<div class="blog blog--post">
+    <div class="blog__post-card blog__post-card--full mdl-card mdl-shadow--2dp">
+        <div class="mdl-card__title">
+            <h2 class="mdl-card__title-text">{{ $page->title }}</h2>
+        </div>
+        <div class="mdl-card__supporting-text">
             {!! $page->content  !!}
         </div>
     </div>
 </div>
-@endsection
-@section("scripts")
-    <script>
-        $(document).on("loaded", function() {
-            console.log("Ajax / Not ajax load was done");
-        });
-    </script>
 @endsection

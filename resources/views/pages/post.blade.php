@@ -3,17 +3,19 @@
 @section("content")
 @include("pages.welcome")
 
-<div class="content-container blog">
-    <div class="post">
-        <h1>{{ $post->title }} <br/>
-        <span class="small">
-            <span class="glyphicon glyphicon-time"></span> <span class="date">{{ $post->created_at }}</span>
-            <span class="glyphicon glyphicon-eye-open"></span> <span class="views">{{ $post->views }}</span>
-        </span>
-        </h1>
-
-        <div class="post-text">
-        {!! $post->content  !!}
+<div class="blog blog--post">
+    <div class="blog__post-card blog__post-card--full mdl-card mdl-shadow--2dp">
+        <div class="mdl-card__title">
+            <h2 class="mdl-card__title-text">{{ $post->title }}</h2>
+        </div>
+        <div class="mdl-card__supporting-text">
+            {!! $post->content  !!}
+        </div>
+        <div class="mdl-card__actions mdl-card--border">
+            <span class="blog__post-card--stat">
+                    <i class="material-icons">update</i> {{ $post->created_at->diffForHumans() }}
+                <i class="material-icons">&#xE417;</i> {{ $post->views }}
+                </span>
         </div>
     </div>
 </div>

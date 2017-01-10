@@ -16,65 +16,49 @@
     <meta name="_token" content="<?=Crypt::encrypt(csrf_token()) ?>">
 
     <title>{{ Config::get("website.title") }}</title>
-
-    <link href='//fonts.googleapis.com/css?family=Lato:100' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css"/>
-    <link rel="stylesheet" href="/css/style.css"/>
-
-
 </head>
 <body>
-<header>
-    <div class="menu-wrap">
-        <nav class="menu">
-            <div class="logo">
-                <a href="/">
-                    Avenger<span class="last-word">Web</span>
-                </a>
+    <div id="app" class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+        <header class="mdl-layout__header">
+            <div class="mdl-layout__header-row">
+                <!-- Title -->
+                <a href="/" class="mdl-layout-title mdl-layout-title--link">AvengerWeb</a>
+                <!-- Add spacer, to align navigation to the right -->
+                <div class="mdl-layout-spacer"></div>
+                <!-- Navigation. We hide it in small screens. -->
+                <nav class="mdl-navigation mdl-layout--large-screen-only">
+                    <a class="mdl-navigation__link" href="/">Home</a>
+                    <a class="mdl-navigation__link" href="/about">Обо мне</a>
+                    <a class="mdl-navigation__link" href="https://github.com/avengerweb/">GitHub</a>
+                </nav>
             </div>
-            <div class="icon-list">
-                <a href="/" class="ajax"><i class="glyphicon glyphicon-home"></i><span>Главная</span></a>
-                <a href="/about"><i class="glyphicon glyphicon-user"></i><span>Обо мне</span></a>
-                <a href="/portfolio"><i class="glyphicon glyphicon-picture"></i><span>Портфолио</span></a>
-                <a class="direct" href="https://github.com/avengerweb/my-own-blog" target="_blank"><i class="glyphicon glyphicon-random"></i><span>GitHub</span></a>
-            </div>
-            <button class="close-button" id="close-button">Close Menu</button>
+        </header>
+        <div class="mdl-layout__drawer">
+            <span class="mdl-layout-title">AvengerWeb</span>
+            <nav class="mdl-navigation">
+                <a class="mdl-navigation__link" href="/">Home</a>
+                <a class="mdl-navigation__link" href="/about">Обо мне</a>
+                <a class="mdl-navigation__link" href="https://github.com/avengerweb/">GitHub</a>
 
-        </nav>
-        <div class="morph-shape" id="morph-shape" data-morph-open="M-7.312,0H15c0,0,66,113.339,66,399.5C81,664.006,15,800,15,800H-7.312V0z;M-7.312,0H95c0,0,0,113.839,0,400c0,264.506,0,400,0,400H-7.312V0z">
-            <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 100 800" preserveAspectRatio="none">
-                <filter id="dropshadow" height="130%">
-                    <feGaussianBlur in="SourceAlpha" stdDeviation="1"></feGaussianBlur> <!-- stdDeviation is how much to blur -->
-                    <feOffset dx="1" dy="1" result="offsetblur"></feOffset> <!-- how much to offset -->
-                    <feComponentTransfer>
-                        <feFuncA type="linear" slope="0.4"></feFuncA>
-                    </feComponentTransfer><feMerge>
-                        <feMergeNode></feMergeNode> <!-- this contains the offset blurred image -->
-                        <feMergeNode in="SourceGraphic"></feMergeNode> <!-- this contains the element that the filter is applied to -->
-                    </feMerge>
-                </filter>
-                <path d="M-7.312,0H0c0,0,0,113.839,0,400c0,264.506,0,400,0,400h-7.312V0z" filter="url(#dropshadow)"/>
-            </svg>
+            </nav>
         </div>
-    </div>
-    <button class="menu-button hidden" id="open-button">Open Menu</button>
-</header>
-<main>
-    <section id="content">
-        <div class="container">
+        <main class="mdl-layout__content">
             @yield("content")
-        </div>
-    </section>
-</main>
 
+        </main>
+    </div>
+
+<link rel="stylesheet" href="//code.getmdl.io/1.3.0/material.deep_purple-red.min.css" />
+<link rel="stylesheet" href="/css/style.css"/>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.3/moment.min.js"></script>
+<script defer src="//code.getmdl.io/1.3.0/material.min.js"></script>
+<link rel="stylesheet" href="//fonts.googleapis.com/icon?family=Material+Icons">
+
+
 {{--<script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.3/locales.min.js"></script>--}}
 
-<script src="/js/snap.svg-min.js"></script>
-<script src="/js/ajax-nav.js"></script>
-<script src="/js/AvengerWeb.js"></script>
 
 @yield("scripts")
 {!! Config::get("website.counters") !!}
