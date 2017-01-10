@@ -5,7 +5,7 @@
 
 <div class="blog blog--post">
     <div class="blog__post-card blog__post-card--full mdl-card mdl-shadow--2dp">
-        <div class="mdl-card__title">
+        <div class="mdl-card__title @if ($post->cover) mdl-card__title--cover" style="background-image: url('{{ $post->cover }}') @endif">
             <h2 class="mdl-card__title-text">{{ $post->title }}</h2>
         </div>
         <div class="mdl-card__supporting-text">

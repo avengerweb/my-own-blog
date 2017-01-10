@@ -35,8 +35,10 @@ class Access
      */
     public function handle($request, Closure $next, $permission)
     {
-        if ($this->auth->guest()) {
-            if ($request->ajax()) {
+        if ($this->auth->guest())
+        {
+            if ($request->ajax())
+            {
                 return response('Unauthorized.', 401);
             } else {
                 return redirect()->guest('user/login');

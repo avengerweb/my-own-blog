@@ -46,7 +46,8 @@ class PostsController extends Controller
             'content' => 'required|max:40000',
             'active_from' => 'date',
             'state' => 'required|integer|min:0|max:2',
-            'disable_comments' => 'boolean'
+            'disable_comments' => 'boolean',
+            'cover' => 'max:255',
         ]);
 
         if (!$validator->fails()) {
@@ -58,6 +59,8 @@ class PostsController extends Controller
             $post->generateSlug();
             $post->description = $request->get("description");
             $post->content = $request->get("content");
+            $post->cover = $request->get("cover");
+            $post->user_id = \Auth::user()->id;
 
             if ($request->get('state') == 2)
                 $post->active_from = $request->get("active_from");
@@ -102,7 +105,8 @@ class PostsController extends Controller
             'content' => 'required|max:40000',
             'active_from' => 'date',
             'state' => 'required|integer|min:0|max:2',
-            'disable_comments' => 'boolean'
+            'disable_comments' => 'boolean',
+            'cover' => 'max:255',
         ]);
 
         if (!$validator->fails()) {
@@ -113,9 +117,13 @@ class PostsController extends Controller
             $post->generateSlug();
             $post->description = $request->get("description");
             $post->content = $request->get("content");
+            $post->cover = $request->get("cover");
 
             if ($request->get('state') == 2)
                 $post->active_from = $request->get("active_from");
+
+            if (!$post->user_id)
+                $post->user_id = \Auth::user()->id;
 
             $post->state = $request->get("state");
             $post->disable_comments = $request->has("disable_comments");

@@ -54,6 +54,16 @@ return [
             'visibility' => 'public',
         ],
 
+        'uploads' => [
+            'driver' => 'local',
+            'root'   => storage_path('public/uploads'),
+        ],
+
+        'config' => [
+            'driver' => 'local',
+            'root'   => config_path(),
+        ],
+
         's3' => [
             'driver' => 's3',
             'key' => 'your-key',

@@ -54,6 +54,31 @@ body {
 
   .mdl-card__title {
     border-bottom: 1px solid #ebebeb;
+
+    &.mdl-card__title--cover {
+      height: 250px;
+      background-size: cover;
+      background-position: center;
+
+      .mdl-card__title-text {
+        color: white;
+        text-shadow: 0px 1px 1px rgba(0, 0, 0, .75);
+        font-size: 1.8em;
+        display: block;
+        width: calc(100% + 32px);
+        margin: 0px -16px -16px;
+        background: rgba(103, 58, 183, .55);
+        padding: 5px 10px;
+      }
+
+      @media (max-width: 700px)
+      {
+        height: 280px;
+        .mdl-card__title-text {
+          font-size: 24px;
+        }
+      }
+    }
   }
 
   .mdl-card__title-link {
@@ -89,6 +114,12 @@ body {
     .mdl-card__actions {
       padding: 5px 0;
       height: 40px;
+    }
+    .mdl-card__title {
+      &.mdl-card__title--cover
+      {
+        height: 300px;
+      }
     }
   }
 

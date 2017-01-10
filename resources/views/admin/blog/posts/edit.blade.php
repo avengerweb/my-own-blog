@@ -25,6 +25,22 @@
         {!! Form::textarea('content', $post->content, ['class' => 'form-control html']) !!}
     </div>
 
+<!--- Content Field --->
+    <div class="form-group">
+        {!! Form::label('content', 'Content:') !!}
+        {!! Form::textarea('content', $post->content, ['class' => 'form-control html']) !!}
+    </div>
+
+    <div class="form-group">
+        {!! Form::label('content', 'Cover:') !!}
+        <div class="input-group">
+            <input type="text" name="cover" class="form-control" value="{{ old('cover', $post->cover) }}" id="js-cover-input" placeholder="Path or url">
+            <span class="input-group-btn">
+                <button class="btn btn-default js-uploader" type="button" data-input="#js-cover-input">Choose</button>
+              </span>
+        </div>
+    </div>
+
     <div class="col-xs-5 state-box">
         <!--- Select state Field --->
         <div class="form-group col-xs-5">
@@ -40,10 +56,12 @@
     </div>
 
 
-
+    <div class="clearfix"></div>
     <div class="form-group">
-    <button class="btn btn-default">Save</button>
+        <button class="btn btn-default">Save</button>
     </div>
 {!! Form::close() !!}
+
+@include('admin.upload')
 
 @endsection

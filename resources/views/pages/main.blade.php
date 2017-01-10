@@ -7,7 +7,7 @@
     <div class="mdl-typography--display-3">Статьи</div>
     @foreach($posts as $post)
         <div class="blog__post-card mdl-card mdl-shadow--4dp">
-            <div class="mdl-card__title">
+            <div class="mdl-card__title @if ($post->cover) mdl-card__title--cover" style="background-image: url('{{ $post->cover }}') @endif">
                 <a href="{!! $post->url() !!}" class="mdl-card__title-text mdl-card__title-link">{{ $post->title }}</a>
             </div>
             <div class="mdl-card__supporting-text">

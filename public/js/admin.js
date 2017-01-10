@@ -81,4 +81,40 @@ $(document).ready(function() {
             {title: 'Test template 2', content: 'Test 2'}
         ]
     });
+
+    $(".js-uploader").on('click', function (e)
+    {
+        e.preventDefault();
+        uploadInput = $($(this).data('input'));
+        uploadModal.modal('show');
+    });
+
+    /**
+     * Hack for elfinder
+     */
+    var uploadInput = null;
+    var uploadModal = $('#uploadModal');
+    uploadModal.on('shown.bs.modal', function (e)
+    {
+        var t = $(this);
+        var iframe = t.find('iframe');
+        if (!iframe.length)
+        {
+            t.find('.modal-body').append('<iframe src="/admin/upload/no1"></iframe>');
+            parent.jQuery.colorbox =
+            {
+                close: function ()
+                {
+                    t.modal('hide');
+                    uploadInput = null;
+                }
+            };
+
+            window.parent.processSelectedFile = function(path)
+            {
+                if (uploadInput)
+                    uploadInput.val('/' + path.replace('\\', '/'));
+            }
+        }
+    })
 });
