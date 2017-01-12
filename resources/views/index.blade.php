@@ -42,10 +42,21 @@
 
             </nav>
         </div>
-        <main class="mdl-layout__content">
+        <div class="mdl-layout__content">
+        <main>
             @yield("content")
-
         </main>
+
+        <footer class="mdl-mini-footer">
+            <div class="mdl-mini-footer__left-section">
+                <div class="mdl-logo">AvengerWeb.com &copy; 2014-{{ \Carbon\Carbon::now()->year }}</div>
+                <ul class="mdl-mini-footer__link-list">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/about">About me</a></li>
+                </ul>
+            </div>
+        </footer>
+        </div>
     </div>
 
 <link rel="stylesheet" href="//code.getmdl.io/1.3.0/material.deep_purple-red.min.css" />

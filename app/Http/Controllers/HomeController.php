@@ -10,6 +10,7 @@ use Carbon\Carbon;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Support\Facades\Config;
 use Request;
+use Symfony\Component\HttpKernel\Exception\HttpException;
 
 class HomeController extends Controller
 {
@@ -20,7 +21,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return Post::toShow()->orderBy("id", "desc")->simplePaginate(10);
+        return Post::toShow()->orderBy("id", "desc")->simplePaginate(20);
     }
 
     /**
@@ -30,7 +31,7 @@ class HomeController extends Controller
      */
     public function welcome()
     {
-        return view("pages.main")->withPosts(Post::toShow()->orderBy("id", "desc")->simplePaginate(10));
+        return view("pages.main")->withPosts(Post::toShow()->orderBy("id", "desc")->simplePaginate(20));
     }
 
     /**
@@ -39,17 +40,18 @@ class HomeController extends Controller
      * @param $url
      * @return mixed
      */
-    public function getPage($url) {
+    public function getPage($url)
+    {
         $page = Page::whereUrl($url)->first();
         if (!$page)
-            throw (new ModelNotFoundException)->setModel(get_class($page));
-        else {
-
+            throw (new ModelNotFoundException())->setModel(Page::class);
+        else
+        {
             \Config::set("website.title", $page->title);
             \Config::set("website.keywords", $page->keywords);
             \Config::set("website.description", $page->description);
 
-            return view("pages.page")->withPage($page);
+            return view("pages.page", compact('page'));
         }
     }
 
@@ -59,10 +61,11 @@ class HomeController extends Controller
      * @param $slug
      * @return mixed
      */
-    public function getPost($slug) {
+    public function getPost($slug)
+    {
         $post = Post::whereSlug($slug)->first();
         if (!$post)
-            throw (new ModelNotFoundException)->setModel(get_class($post));
+            throw (new ModelNotFoundException())->setModel(Post::class);
         else {
             //TODO:: Move it from there and add some logic :)
             if ($viewed = \Session::get("viewed"))

@@ -30,10 +30,9 @@ class ConfigWriter
 
     /**
      *  Create a new config writer
-     *
-     *  @return void
      */
-    public function __construct() {
+    public function __construct()
+    {
         $this->storage = Storage::disk("config");
     }
 
@@ -42,7 +41,8 @@ class ConfigWriter
      *
      *  @return void
      */
-    public function save() {
+    public function save()
+    {
         $this->storage->put($this->config . ".php", "<?php\n return " . var_export(Config::get("website"), true) .";");
     }
 }

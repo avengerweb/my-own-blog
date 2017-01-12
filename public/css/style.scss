@@ -1,5 +1,5 @@
 @import "styles/mixin";
-@import url(http://fonts.googleapis.com/css?family=Roboto:400,100,300,500,400italic,700&subset=latin,cyrillic);
+@import url(//fonts.googleapis.com/css?family=Roboto:400,100,300,500,400italic,700&subset=latin,cyrillic);
 
 $red: rgb(255,82,82);
 $black: #505050;
@@ -27,7 +27,8 @@ body {
   display: none;
 }
 
-.mdl-layout__header-row, .mdl-layout__content {
+.mdl-layout__header-row, main
+{
   padding: 0 16px 0 16px;
   max-width: 1600px;
   width: 100%;
