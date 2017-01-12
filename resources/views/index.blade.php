@@ -35,7 +35,6 @@
                 <a class="mdl-navigation__link" href="/">Home</a>
                 <a class="mdl-navigation__link" href="/about">Обо мне</a>
                 <a class="mdl-navigation__link" href="https://github.com/avengerweb/">GitHub</a>
-
             </nav>
         </div>
         <div class="mdl-layout__content">
@@ -49,6 +48,11 @@
                 <ul class="mdl-mini-footer__link-list">
                     <li><a href="/">Home</a></li>
                     <li><a href="/about">About me</a></li>
+                </ul>
+            </div>
+            <div class="mdl-mini-footer__right-section">
+                <ul class="mdl-mini-footer__link-list">
+                    <li>{{ config('version.version') }} ({{ config('version.revision') }}) ver.</li>
                 </ul>
             </div>
         </footer>
