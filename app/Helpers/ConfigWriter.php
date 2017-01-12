@@ -1,18 +1,11 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: avengerweb
- * Date: 25.06.15
- * Time: 22:01
- */
-
 namespace App\Helpers;
 
 use Config;
 use Storage;
 
 /**
- * Helper for working with custom configuration file
+ * Helper for working with custom configuration files
  *
  * Class ConfigWriter
  * @package App\Helpers
@@ -23,7 +16,10 @@ class ConfigWriter
      * @var \Illuminate\Contracts\Filesystem\Filesystem
      */
     private $storage;
+
     /**
+     * Config filename without extension
+     *
      * @var string
      */
     private $config = "website";
@@ -37,12 +33,13 @@ class ConfigWriter
     }
 
     /**
-     *  Save current custom website config to file
+     *  Save current custom config to file
      *
-     *  @return void
+     * @param string $config
      */
-    public function save()
+    public function save(string $config = null)
     {
-        $this->storage->put($this->config . ".php", "<?php\n return " . var_export(Config::get("website"), true) .";");
+        $config = $config ?: $this->config;
+        $this->storage->put($config . ".php", "<?php\n return " . var_export(Config::get($config), true) .";");
     }
 }
