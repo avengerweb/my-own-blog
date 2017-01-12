@@ -1,20 +1,5 @@
-1. Add meta tags to main template - done
-2. Add admin profile edit into control panel - done
-3. Add blog settings and editing it in control panel (title, keywords, description) - done
-4. Animating move logo to menu ;) - done
-5.
-    5.1) CP: Permission editing (add / edit / delete) - done
-    5.2) CP: User access editing (add / edit / delete) -done
-6. Add post categories + editing (add / edit /delete) - done
-7. Unset custom config variables
-8. Validation on save config - not need
-9. Posts (create / edit / remove) - done
-10. Show posts in main page - done
-11. Posts: binding to categories
-12. Show categories
-13. Static pages -done
-14. Ajax loading - done
-15. Posts:
+1. Posts: binding to categories
+2. Show categories
+3. Posts:
   1. likes
-  2. views - done 
-16. File(images) upload for posts
+  2. views - rework

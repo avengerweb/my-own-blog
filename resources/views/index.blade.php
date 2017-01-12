@@ -1,7 +1,3 @@
-@if (\Request::ajax())
-    @yield("content")
-    @yield("scripts")
-@else
 <!DOCTYPE html>
 <html>
 <head>
@@ -60,20 +56,17 @@
     </div>
 
 <link rel="stylesheet" href="//code.getmdl.io/1.3.0/material.deep_purple-red.min.css" />
-<link rel="stylesheet" href="/css/style.css?1"/>
+<link rel="stylesheet" href="/css/style.css?_={{ config('version.revision') }}"/>
+
 <script src="//ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.3/moment.min.js"></script>
 <script defer src="//code.getmdl.io/1.3.0/material.min.js"></script>
 <link rel="stylesheet" href="//fonts.googleapis.com/icon?family=Material+Icons">
 
-
 {{--<script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.3/locales.min.js"></script>--}}
-
 
 @yield("scripts")
 {!! Config::get("website.counters") !!}
 
 </body>
 </html>
-@endif
