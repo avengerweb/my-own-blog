@@ -10,3 +10,5 @@ config/version.php
 yarn.lock
 composer.lock
 public/mix-manifest.json
+public/css/app.css
+public/js/app.js
