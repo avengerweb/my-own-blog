@@ -11,6 +11,10 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::group(['prefix' => 'user'], function()
+{
+    Auth::routes();
+    Route::get('/', 'ProfileController@index')->name('home');
 });
+
+Route::get('/', 'HomeController@index')->name('index');

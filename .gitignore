@@ -7,3 +7,6 @@ _ide_helper.php
 .env.php
 .env
 config/version.php
+yarn.lock
+composer.lock
+public/mix-manifest.json
