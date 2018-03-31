@@ -1,5 +1,0 @@
-1. Posts: binding to categories
-2. Show categories
-3. Posts:
-  1. likes
-  2. views - rework
