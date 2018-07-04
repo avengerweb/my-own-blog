@@ -3,23 +3,23 @@
 namespace App\Services\Blog;
 
 use App\Entity\Blog\Post;
-use Illuminate\Contracts\Filesystem\Filesystem;
 use Illuminate\Http\Request;
 use Illuminate\Pagination\LengthAwarePaginator;
 
 class PostsService
 {
     /**
-     * @var Filesystem
+     * @var ResourcesService
      */
-    private $storage;
+    private $resourcesService;
 
     /**
      * PostsService constructor.
+     * @param ResourcesService $resourcesService
      */
-    public function __construct()
+    public function __construct(ResourcesService $resourcesService)
     {
-        $this->storage = \Storage::disk('public');
+        $this->resourcesService = $resourcesService;
     }
 
     /**

@@ -24,4 +24,6 @@ Route::group(['prefix' => 'v1'], function()
         Route::get('posts/slug/{slug}', 'Api\Blog\PostsController@showBySlug');
         Route::resource('posts', 'Api\Blog\PostsController');
     });
+
+    Route::resource('resources', 'Api\ResourcesController');
 });

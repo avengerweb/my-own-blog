@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Services\Blog\ResourcesService;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -23,6 +24,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        $this->app->singleton(ResourcesService::class, ResourcesService::class);
     }
 }
