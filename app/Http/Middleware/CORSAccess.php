@@ -27,11 +27,6 @@ class CORSAccess
      */
     public function handle($request, Closure $next, $guard = null)
     {
-        if (!starts_with($request->getRequestUri(), "/api/") && $request->getHost() === 'api.sirus.su')
-        {
-            throw new NotFoundHttpException();
-        }
-
         $response = $request->method() === 'OPTIONS' ? response('') : $next($request);
 
         if ($origin = $request->headers->get('referer', $request->headers->get('origin')))

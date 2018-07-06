@@ -14,7 +14,11 @@
 Route::group(['prefix' => 'user'], function()
 {
     Auth::routes();
-    Route::get('/', 'ProfileController@index')->name('home');
 });
 
 Route::get('/', 'HomeController@index')->name('index');
+
+Route::group(['prefix' => 'admin', 'middleware' => 'authorize:view-dashboard'], function()
+{
+    Route::get('/', 'Admin\DashboardController@index');
+});
